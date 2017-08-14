@@ -18,10 +18,11 @@ namespace PAL4_EDIT
         IntPtr  process_handle = new IntPtr(0);
         bool is_fight = false;//是否正在战斗
 
-        public static int YunTianHe = 0;
-        public static int HanLingSha = 1;
-        public static int LiuMengLi = 2;
-        public static int MuRongZiYing = 3;
+        public const int YunTianHe = 0;
+        public const int HanLingSha = 1;
+        public const int LiuMengLi = 2;
+        public const int MuRongZiYing = 3;
+
         public struct data_mn
         {
             public Int32 max;
@@ -39,6 +40,7 @@ namespace PAL4_EDIT
             public Int32 yun;   //运
             public Int32 ling;  //灵
             public Int16 pos;   //在队伍中的位置
+            public bool inTeam;
         }
 
         USER_DATA[] ALL_USER;
@@ -186,7 +188,7 @@ namespace PAL4_EDIT
             {
                 switch (id)
                 {
-                    case 0://云天河
+                    case YunTianHe://云天河
                         Y_G_T.Text = "云天河-" + ALL_USER[id].pos.ToString();
 
                         Y_J.Maximum = ALL_USER[id].hp.max;
@@ -206,8 +208,10 @@ namespace PAL4_EDIT
                         D_Y_S.Text = "速：" + ALL_USER[id].su.ToString();
                         D_Y_Y.Text = "运：" + ALL_USER[id].yun.ToString();
                         D_Y_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+
+                        Y_I_T.Checked = ALL_USER[id].inTeam;
                         break;
-                    case 1://韩菱纱
+                    case HanLingSha://韩菱纱
                         H_G_T.Text = "韩菱纱-" + ALL_USER[id].pos.ToString();
 
                         H_J.Maximum = ALL_USER[id].hp.max;
@@ -227,8 +231,10 @@ namespace PAL4_EDIT
                         D_H_S.Text = "速：" + ALL_USER[id].su.ToString();
                         D_H_Y.Text = "运：" + ALL_USER[id].yun.ToString();
                         D_H_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+
+                        H_I_T.Checked = ALL_USER[id].inTeam;
                         break;
-                    case 2://柳梦璃
+                    case LiuMengLi://柳梦璃
                         L_G_T.Text = "柳梦璃-" + ALL_USER[id].pos.ToString();
 
                         L_J.Maximum = ALL_USER[id].hp.max;
@@ -248,8 +254,10 @@ namespace PAL4_EDIT
                         D_L_S.Text = "速：" + ALL_USER[id].su.ToString();
                         D_L_Y.Text = "运：" + ALL_USER[id].yun.ToString();
                         D_L_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+
+                        L_I_T.Checked = ALL_USER[id].inTeam;
                         break;
-                    case 3://慕容紫英
+                    case MuRongZiYing://慕容紫英
                         M_G_T.Text = "慕容紫英-" + ALL_USER[id].pos.ToString();
 
                         M_J.Maximum = ALL_USER[id].hp.max;
@@ -269,6 +277,8 @@ namespace PAL4_EDIT
                         D_M_S.Text = "速：" + ALL_USER[id].su.ToString();
                         D_M_Y.Text = "运：" + ALL_USER[id].yun.ToString();
                         D_M_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+
+                        M_I_T.Checked = ALL_USER[id].inTeam;
                         break;
                 }
             }
@@ -297,7 +307,7 @@ namespace PAL4_EDIT
                 Int16 su = 0;
                 Int16 yun = 0;
                 Int16 ling = 0;
-
+                Int16 isteam = 0;
                 if (Read2Byte(process_handle, BASE_ADDR + 0x890 + id * 0xb14, out hp_now) == false)
                     return; 
                 if (Read2Byte(process_handle, BASE_ADDR + 0x7ac + id * 0xb14, out hp_max) == false)
@@ -311,15 +321,18 @@ namespace PAL4_EDIT
                 if (Read2Byte(process_handle, BASE_ADDR + 0x894 + id * 0xb14, out rage) == false)
                     return;
 
-                if (Read2Byte(process_handle, out_data + 0x668 + id * 0xb14, out wu) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x668 + id * 0xb14, out wu) == false)
                     return;
-                if (Read2Byte(process_handle, out_data + 0x66c + id * 0xb14, out fang) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x66c + id * 0xb14, out fang) == false)
                     return;
-                if (Read2Byte(process_handle, out_data + 0x670 + id * 0xb14, out su) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x670 + id * 0xb14, out su) == false)
                     return;
-                if (Read2Byte(process_handle, out_data + 0x674 + id * 0xb14, out yun) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x674 + id * 0xb14, out yun) == false)
                     return;
-                if (Read2Byte(process_handle, out_data + 0x678 + id * 0xb14, out ling) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x678 + id * 0xb14, out ling) == false)
+                    return;
+
+                if (Read2Byte(process_handle, BASE_ADDR + 0xB08 + id * 0xb14, out isteam) == false)
                     return;
 
                 ALL_USER[id].pos = Get_Pos(id);
@@ -338,6 +351,8 @@ namespace PAL4_EDIT
                 ALL_USER[id].su         = su;
                 ALL_USER[id].yun        = yun;
                 ALL_USER[id].ling       = ling;
+                if (isteam == 1) ALL_USER[id].inTeam = true;
+                else ALL_USER[id].inTeam = false;
             }
             //MessageBox.Show("HP:" + hp.ToString());
         }
@@ -514,6 +529,62 @@ namespace PAL4_EDIT
                 }
                 
             }
+        }
+
+        private void Y_I_T_CheckedChanged(object sender, EventArgs e)
+        {
+            Int16 indt = 0;
+            if (Y_I_T.Checked == false)
+                indt = 0;
+            else
+                indt = 1;
+            Int32 base_addr;
+            if (Read4Byte(process_handle, 0x8E1428, out base_addr) == false)
+                return;
+
+            Write2Byte(process_handle,base_addr + 0xB08 + YunTianHe * 0xb14,indt);
+        }
+
+        private void H_I_T_CheckedChanged(object sender, EventArgs e)
+        {
+            Int16 indt = 0;
+            if (H_I_T.Checked == false)
+                indt = 0;
+            else
+                indt = 1;
+            Int32 base_addr;
+            if (Read4Byte(process_handle, 0x8E1428, out base_addr) == false)
+                return;
+
+            Write2Byte(process_handle, base_addr + 0xB08 + HanLingSha * 0xb14, indt);
+        }
+
+        private void L_I_T_CheckedChanged(object sender, EventArgs e)
+        {
+            Int16 indt = 0;
+            if (L_I_T.Checked == false)
+                indt = 0;
+            else
+                indt = 1;
+            Int32 base_addr;
+            if (Read4Byte(process_handle, 0x8E1428, out base_addr) == false)
+                return;
+
+            Write2Byte(process_handle, base_addr + 0xB08 + LiuMengLi * 0xb14, indt);
+        }
+
+        private void M_I_T_CheckedChanged(object sender, EventArgs e)
+        {
+            Int16 indt = 0;
+            if (M_I_T.Checked == false)
+                indt = 0;
+            else
+                indt = 1;
+            Int32 base_addr;
+            if (Read4Byte(process_handle, 0x8E1428, out base_addr) == false)
+                return;
+
+            Write2Byte(process_handle, base_addr + 0xB08 + MuRongZiYing * 0xb14, indt);
         }
     }
 }

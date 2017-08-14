@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.Y_G_T = new System.Windows.Forms.GroupBox();
+            this.Y_I_T = new System.Windows.Forms.CheckBox();
             this.D_Y_L = new System.Windows.Forms.Label();
             this.D_Y_Y = new System.Windows.Forms.Label();
             this.D_Y_S = new System.Windows.Forms.Label();
@@ -47,11 +48,14 @@
             this.Y_J = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.run_fast = new System.Windows.Forms.CheckBox();
+            this.flag_infinite = new System.Windows.Forms.CheckBox();
             this.no_boss = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.g_m = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.H_G_T = new System.Windows.Forms.GroupBox();
+            this.H_I_T = new System.Windows.Forms.CheckBox();
             this.D_H_L = new System.Windows.Forms.Label();
             this.D_H_Y = new System.Windows.Forms.Label();
             this.D_H_S = new System.Windows.Forms.Label();
@@ -67,6 +71,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.H_J = new System.Windows.Forms.ProgressBar();
             this.L_G_T = new System.Windows.Forms.GroupBox();
+            this.L_I_T = new System.Windows.Forms.CheckBox();
             this.D_L_L = new System.Windows.Forms.Label();
             this.D_L_Y = new System.Windows.Forms.Label();
             this.D_L_S = new System.Windows.Forms.Label();
@@ -82,6 +87,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.L_J = new System.Windows.Forms.ProgressBar();
             this.M_G_T = new System.Windows.Forms.GroupBox();
+            this.M_I_T = new System.Windows.Forms.CheckBox();
             this.D_M_L = new System.Windows.Forms.Label();
             this.D_M_Y = new System.Windows.Forms.Label();
             this.D_M_S = new System.Windows.Forms.Label();
@@ -97,8 +103,6 @@
             this.label37 = new System.Windows.Forms.Label();
             this.M_J = new System.Windows.Forms.ProgressBar();
             this.button3 = new System.Windows.Forms.Button();
-            this.flag_infinite = new System.Windows.Forms.CheckBox();
-            this.run_fast = new System.Windows.Forms.CheckBox();
             this.Y_G_T.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.H_G_T.SuspendLayout();
@@ -118,6 +122,7 @@
             // 
             // Y_G_T
             // 
+            this.Y_G_T.Controls.Add(this.Y_I_T);
             this.Y_G_T.Controls.Add(this.D_Y_L);
             this.Y_G_T.Controls.Add(this.D_Y_Y);
             this.Y_G_T.Controls.Add(this.D_Y_S);
@@ -138,6 +143,17 @@
             this.Y_G_T.TabIndex = 1;
             this.Y_G_T.TabStop = false;
             this.Y_G_T.Text = "云天河";
+            // 
+            // Y_I_T
+            // 
+            this.Y_I_T.AutoSize = true;
+            this.Y_I_T.Location = new System.Drawing.Point(189, 470);
+            this.Y_I_T.Name = "Y_I_T";
+            this.Y_I_T.Size = new System.Drawing.Size(114, 28);
+            this.Y_I_T.TabIndex = 14;
+            this.Y_I_T.Text = "队伍中";
+            this.Y_I_T.UseVisualStyleBackColor = true;
+            this.Y_I_T.CheckedChanged += new System.EventHandler(this.Y_I_T_CheckedChanged);
             // 
             // D_Y_L
             // 
@@ -279,6 +295,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "系统";
             // 
+            // run_fast
+            // 
+            this.run_fast.AutoSize = true;
+            this.run_fast.Location = new System.Drawing.Point(710, 44);
+            this.run_fast.Name = "run_fast";
+            this.run_fast.Size = new System.Drawing.Size(138, 28);
+            this.run_fast.TabIndex = 7;
+            this.run_fast.Text = "移动加速";
+            this.run_fast.UseVisualStyleBackColor = true;
+            this.run_fast.CheckedChanged += new System.EventHandler(this.run_fast_CheckedChanged);
+            // 
+            // flag_infinite
+            // 
+            this.flag_infinite.AutoSize = true;
+            this.flag_infinite.Location = new System.Drawing.Point(384, 89);
+            this.flag_infinite.Name = "flag_infinite";
+            this.flag_infinite.Size = new System.Drawing.Size(186, 28);
+            this.flag_infinite.TabIndex = 6;
+            this.flag_infinite.Text = "迷宫点数无限";
+            this.flag_infinite.UseVisualStyleBackColor = true;
+            // 
             // no_boss
             // 
             this.no_boss.AutoSize = true;
@@ -317,6 +354,7 @@
             // 
             // H_G_T
             // 
+            this.H_G_T.Controls.Add(this.H_I_T);
             this.H_G_T.Controls.Add(this.D_H_L);
             this.H_G_T.Controls.Add(this.D_H_Y);
             this.H_G_T.Controls.Add(this.D_H_S);
@@ -337,6 +375,17 @@
             this.H_G_T.TabIndex = 3;
             this.H_G_T.TabStop = false;
             this.H_G_T.Text = "韩菱纱";
+            // 
+            // H_I_T
+            // 
+            this.H_I_T.AutoSize = true;
+            this.H_I_T.Location = new System.Drawing.Point(183, 470);
+            this.H_I_T.Name = "H_I_T";
+            this.H_I_T.Size = new System.Drawing.Size(114, 28);
+            this.H_I_T.TabIndex = 15;
+            this.H_I_T.Text = "队伍中";
+            this.H_I_T.UseVisualStyleBackColor = true;
+            this.H_I_T.CheckedChanged += new System.EventHandler(this.H_I_T_CheckedChanged);
             // 
             // D_H_L
             // 
@@ -460,6 +509,7 @@
             // 
             // L_G_T
             // 
+            this.L_G_T.Controls.Add(this.L_I_T);
             this.L_G_T.Controls.Add(this.D_L_L);
             this.L_G_T.Controls.Add(this.D_L_Y);
             this.L_G_T.Controls.Add(this.D_L_S);
@@ -480,6 +530,17 @@
             this.L_G_T.TabIndex = 4;
             this.L_G_T.TabStop = false;
             this.L_G_T.Text = "柳梦璃";
+            // 
+            // L_I_T
+            // 
+            this.L_I_T.AutoSize = true;
+            this.L_I_T.Location = new System.Drawing.Point(183, 470);
+            this.L_I_T.Name = "L_I_T";
+            this.L_I_T.Size = new System.Drawing.Size(114, 28);
+            this.L_I_T.TabIndex = 15;
+            this.L_I_T.Text = "队伍中";
+            this.L_I_T.UseVisualStyleBackColor = true;
+            this.L_I_T.CheckedChanged += new System.EventHandler(this.L_I_T_CheckedChanged);
             // 
             // D_L_L
             // 
@@ -603,6 +664,7 @@
             // 
             // M_G_T
             // 
+            this.M_G_T.Controls.Add(this.M_I_T);
             this.M_G_T.Controls.Add(this.D_M_L);
             this.M_G_T.Controls.Add(this.D_M_Y);
             this.M_G_T.Controls.Add(this.D_M_S);
@@ -623,6 +685,17 @@
             this.M_G_T.TabIndex = 5;
             this.M_G_T.TabStop = false;
             this.M_G_T.Text = "慕容紫英";
+            // 
+            // M_I_T
+            // 
+            this.M_I_T.AutoSize = true;
+            this.M_I_T.Location = new System.Drawing.Point(183, 470);
+            this.M_I_T.Name = "M_I_T";
+            this.M_I_T.Size = new System.Drawing.Size(114, 28);
+            this.M_I_T.TabIndex = 15;
+            this.M_I_T.Text = "队伍中";
+            this.M_I_T.UseVisualStyleBackColor = true;
+            this.M_I_T.CheckedChanged += new System.EventHandler(this.M_I_T_CheckedChanged);
             // 
             // D_M_L
             // 
@@ -754,27 +827,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // flag_infinite
-            // 
-            this.flag_infinite.AutoSize = true;
-            this.flag_infinite.Location = new System.Drawing.Point(384, 89);
-            this.flag_infinite.Name = "flag_infinite";
-            this.flag_infinite.Size = new System.Drawing.Size(186, 28);
-            this.flag_infinite.TabIndex = 6;
-            this.flag_infinite.Text = "迷宫点数无限";
-            this.flag_infinite.UseVisualStyleBackColor = true;
-            // 
-            // run_fast
-            // 
-            this.run_fast.AutoSize = true;
-            this.run_fast.Location = new System.Drawing.Point(710, 44);
-            this.run_fast.Name = "run_fast";
-            this.run_fast.Size = new System.Drawing.Size(138, 28);
-            this.run_fast.TabIndex = 7;
-            this.run_fast.Text = "移动加速";
-            this.run_fast.UseVisualStyleBackColor = true;
-            this.run_fast.CheckedChanged += new System.EventHandler(this.run_fast_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -880,6 +932,10 @@
         private System.Windows.Forms.CheckBox no_boss;
         private System.Windows.Forms.CheckBox flag_infinite;
         private System.Windows.Forms.CheckBox run_fast;
+        private System.Windows.Forms.CheckBox Y_I_T;
+        private System.Windows.Forms.CheckBox H_I_T;
+        private System.Windows.Forms.CheckBox L_I_T;
+        private System.Windows.Forms.CheckBox M_I_T;
     }
 }
 

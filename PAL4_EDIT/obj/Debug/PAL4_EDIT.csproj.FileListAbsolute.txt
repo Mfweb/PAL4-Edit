@@ -7,3 +7,12 @@ C:\Users\h\Desktop\PAL4\PAL4_EDIT\PAL4_EDIT\obj\Debug\PAL4_EDIT.Properties.Resou
 C:\Users\h\Desktop\PAL4\PAL4_EDIT\PAL4_EDIT\obj\Debug\PAL4_EDIT.csproj.GenerateResource.Cache
 C:\Users\h\Desktop\PAL4\PAL4_EDIT\PAL4_EDIT\obj\Debug\PAL4_EDIT.exe
 C:\Users\h\Desktop\PAL4\PAL4_EDIT\PAL4_EDIT\obj\Debug\PAL4_EDIT.pdb
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\bin\Debug\PAL4_EDIT.exe.config
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\bin\Debug\PAL4_EDIT.exe
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\bin\Debug\PAL4_EDIT.pdb
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.csprojResolveAssemblyReference.cache
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.Form1.resources
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.Properties.Resources.resources
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.csproj.GenerateResource.Cache
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.exe
+C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.pdb

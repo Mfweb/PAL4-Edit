@@ -356,6 +356,41 @@ namespace PAL4_EDIT
             }
             //MessageBox.Show("HP:" + hp.ToString());
         }
+        //锁定数据处理
+        private void Set_HMR()
+        {
+            Int32 BASE_ADDR = 0;
+            if (Read4Byte(process_handle, 0x8E1428, out BASE_ADDR) == false)
+                return;
+
+            if (Y_J_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x890 + YunTianHe * 0xb14, (Int16)ALL_USER[YunTianHe].hp.max);
+            if (Y_Q_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x894 + YunTianHe * 0xb14, (Int16)ALL_USER[YunTianHe].rage.max);
+            if (Y_S_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x898 + YunTianHe * 0xb14, (Int16)ALL_USER[YunTianHe].mp.max);
+
+            if (H_J_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x890 + HanLingSha * 0xb14, (Int16)ALL_USER[HanLingSha].hp.max);
+            if (H_Q_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x894 + HanLingSha * 0xb14, (Int16)ALL_USER[HanLingSha].rage.max);
+            if (H_S_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x898 + HanLingSha * 0xb14, (Int16)ALL_USER[HanLingSha].mp.max);
+
+            if (L_J_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x890 + LiuMengLi * 0xb14, (Int16)ALL_USER[LiuMengLi].hp.max);
+            if (L_Q_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x894 + LiuMengLi * 0xb14, (Int16)ALL_USER[LiuMengLi].rage.max);
+            if (L_S_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x898 + LiuMengLi * 0xb14, (Int16)ALL_USER[LiuMengLi].mp.max);
+
+            if (M_J_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x890 + MuRongZiYing * 0xb14, (Int16)ALL_USER[MuRongZiYing].hp.max);
+            if (M_Q_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x894 + MuRongZiYing * 0xb14, (Int16)ALL_USER[MuRongZiYing].rage.max);
+            if (M_S_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x898 + MuRongZiYing * 0xb14, (Int16)ALL_USER[MuRongZiYing].mp.max);
+        }
         //获得HP MP RAGE(战斗时)
         private void Get_HMR_Fight()
         {
@@ -363,7 +398,7 @@ namespace PAL4_EDIT
             Int32 out_data = 0;
             Int32 FIGHT_ADDR = 0;
 
-            Int32[] BASE_ADDR =  new Int32[4];//人物基址  从作往右0 1 2 3  最后一个候补为ID
+            Int32[] BASE_ADDR =  new Int32[3];//人物基址  从作往右0 1 2
 
             //获取人物战斗地址
             if (Read4Byte(process_handle, 0x8F3128, out out_data) == false)
@@ -385,25 +420,20 @@ namespace PAL4_EDIT
             if (Read4Byte(process_handle, FIGHT_ADDR + 8, out out_data) == false)
                 return;
             BASE_ADDR[2] = out_data;
-            Int16[] user_team = new Int16[4];//保存四个人物位置信息
-            for(int i=0;i<4;i++)//查找候补队员
-            {
-                user_team[i] = Get_Pos(i);
-                if (user_team[i] == 3)
-                {
-                    BASE_ADDR[3] = i;
-                }
-            }
-            //Get_HMR(BASE_ADDR[3]);//候补队员直接获取
 
+            Int32[] f_data = new Int32[3];
+            Read4Byte(process_handle, BASE_ADDR[0], out f_data[0]);
+            Read4Byte(process_handle, BASE_ADDR[1], out f_data[1]);
+            Read4Byte(process_handle, BASE_ADDR[2], out f_data[2]);
             Int16[] hp_now = new Int16[3];//从作往右0 1 2
             Int16[] hp_max = new Int16[3];
             Int16[] mp_now = new Int16[3];
             Int16[] mp_max = new Int16[3];
             Int16[] rage = new Int16[3];
+            textBox1.Clear();
             for (int i = 0; i < 3; i++)//获取场上人物的数据
             {
-                //左侧
+                if (f_data[i] != 0x846008) continue;
                 if (Read2Byte(process_handle, BASE_ADDR[i] + 0x158, out hp_max[i]) == false)
                     return;
                 if (Read2Byte(process_handle, BASE_ADDR[i] + 0x23C, out hp_now[i]) == false)
@@ -416,16 +446,11 @@ namespace PAL4_EDIT
 
                 if (Read2Byte(process_handle, BASE_ADDR[i] + 0x240, out rage[i]) == false)
                     return;
-            }
+                textBox1.AppendText(hp_now[i].ToString() + "/" + hp_max[i].ToString() + "   ");
+                textBox1.AppendText(mp_now[i].ToString() + "/" + mp_max[i].ToString() + "   ");
+                textBox1.AppendText(rage[i].ToString() + "/100\r\n");
 
-            for(int i=0;i<4;i++)
-            {
-                if (user_team[i] != 3)//候补人物之前已经处理过了  这里就不处理了
-                {
-
-                }
             }
-            
         }
        
         private void button1_Click(object sender, EventArgs e)
@@ -479,11 +504,17 @@ namespace PAL4_EDIT
                 g_m.Text = Get_Money().ToString();
             Get_Fight_Status();//获得战斗状态
             Get_HMR();
+            Set_HMR();
             Show_Data();
             if (no_boss.Checked == true)
                 set_no_boss();
             if (flag_infinite.Checked == true)
                 set_flag();
+            if(is_fight)
+                Get_HMR_Fight();
+            if (h_no_boss.Checked)
+                Set_HMODE();
+            Set_Speed();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -496,12 +527,7 @@ namespace PAL4_EDIT
             if ((int)process_handle != 0) W_API.CloseHandle(process_handle);
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Get_HMR_Fight();
-        }
-
-        private void run_fast_CheckedChanged(object sender, EventArgs e)
+        private void Set_Speed()
         {
             if (run_fast.Checked)
             {
@@ -527,8 +553,19 @@ namespace PAL4_EDIT
                         if (Write4Byte(process_handle, b_addr + 0x60, 0x437ED999) == false) return;//设置速度
                         break;
                 }
-                
             }
+        }
+
+        //设置高级不遇敌
+        private void Set_HMODE()
+        {
+            Int32 BASE_ADDR = 0;
+            if (Read4Byte(process_handle, 0x8E1428, out BASE_ADDR) == false)
+                return;
+            Write2Byte(process_handle, BASE_ADDR + 0xB08 + YunTianHe * 0xb14, 0x00);
+            Write2Byte(process_handle, BASE_ADDR + 0xB08 + HanLingSha * 0xb14, 0x00);
+            Write2Byte(process_handle, BASE_ADDR + 0xB08 + LiuMengLi * 0xb14, 0x00);
+            Write2Byte(process_handle, BASE_ADDR + 0xB08 + MuRongZiYing * 0xb14, 0x00);
         }
 
         private void Y_I_T_CheckedChanged(object sender, EventArgs e)

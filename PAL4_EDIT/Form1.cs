@@ -42,8 +42,17 @@ namespace PAL4_EDIT
             public Int16 pos;   //在队伍中的位置
             public bool inTeam;
         }
+        //战斗时的用户数据
+        public struct FIGHT_USER_DATA
+        {
+            public data_mn hp;
+            public data_mn mp;
+            public data_mn rage;
+            public bool inTeam;//这个位置是否有人
+        }
 
         USER_DATA[] ALL_USER;
+        FIGHT_USER_DATA[] FIGHT_USER;
         public Form1()
         {
             InitializeComponent();
@@ -52,6 +61,7 @@ namespace PAL4_EDIT
         private void Form1_Load(object sender, EventArgs e)
         {
             ALL_USER = new USER_DATA[4];
+            FIGHT_USER = new FIGHT_USER_DATA[3];
         }
         //读2字节内存
         private bool Read2Byte(IntPtr hwnd, int hAddr, out Int16 outData)
@@ -184,104 +194,175 @@ namespace PAL4_EDIT
         }
         private void Show_Data()
         {
-            for (int id = 0; id < 4; id++)
+            try
             {
-                switch (id)
+                for (int id = 0; id < 4; id++)
                 {
-                    case YunTianHe://云天河
-                        Y_G_T.Text = "云天河-" + ALL_USER[id].pos.ToString();
+                    switch (id)
+                    {
+                        case YunTianHe://云天河
+                            Y_G_T.Text = "云天河-" + ALL_USER[id].pos.ToString();
 
-                        Y_J.Maximum = ALL_USER[id].hp.max;
-                        Y_J.Value = ALL_USER[id].hp.now;
-                        Y_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                            Y_J.Maximum = ALL_USER[id].hp.max;
+                            Y_J.Value = ALL_USER[id].hp.now;
+                            Y_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
 
-                        Y_S.Maximum = ALL_USER[id].mp.max;
-                        Y_S.Value = ALL_USER[id].mp.now;
-                        Y_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                            Y_S.Maximum = ALL_USER[id].mp.max;
+                            Y_S.Value = ALL_USER[id].mp.now;
+                            Y_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
 
-                        Y_Q.Maximum = 100;
-                        Y_Q.Value = ALL_USER[id].rage.now;
-                        Y_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
+                            Y_Q.Maximum = 100;
+                            Y_Q.Value = ALL_USER[id].rage.now;
+                            Y_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
 
-                        D_Y_W.Text = "武：" + ALL_USER[id].wu.ToString();
-                        D_Y_F.Text = "防：" + ALL_USER[id].fang.ToString();
-                        D_Y_S.Text = "速：" + ALL_USER[id].su.ToString();
-                        D_Y_Y.Text = "运：" + ALL_USER[id].yun.ToString();
-                        D_Y_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+                            D_Y_W.Text = "武：" + ALL_USER[id].wu.ToString();
+                            D_Y_F.Text = "防：" + ALL_USER[id].fang.ToString();
+                            D_Y_S.Text = "速：" + ALL_USER[id].su.ToString();
+                            D_Y_Y.Text = "运：" + ALL_USER[id].yun.ToString();
+                            D_Y_L.Text = "灵：" + ALL_USER[id].ling.ToString();
 
-                        Y_I_T.Checked = ALL_USER[id].inTeam;
-                        break;
-                    case HanLingSha://韩菱纱
-                        H_G_T.Text = "韩菱纱-" + ALL_USER[id].pos.ToString();
+                            Y_I_T.Checked = ALL_USER[id].inTeam;
+                            break;
+                        case HanLingSha://韩菱纱
+                            H_G_T.Text = "韩菱纱-" + ALL_USER[id].pos.ToString();
 
-                        H_J.Maximum = ALL_USER[id].hp.max;
-                        H_J.Value = ALL_USER[id].hp.now;
-                        H_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                            H_J.Maximum = ALL_USER[id].hp.max;
+                            H_J.Value = ALL_USER[id].hp.now;
+                            H_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
 
-                        H_S.Maximum = ALL_USER[id].mp.max;
-                        H_S.Value = ALL_USER[id].mp.now;
-                        H_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                            H_S.Maximum = ALL_USER[id].mp.max;
+                            H_S.Value = ALL_USER[id].mp.now;
+                            H_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
 
-                        H_Q.Maximum = 100;
-                        H_Q.Value = ALL_USER[id].rage.now;
-                        H_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
+                            H_Q.Maximum = 100;
+                            H_Q.Value = ALL_USER[id].rage.now;
+                            H_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
 
-                        D_H_W.Text = "武：" + ALL_USER[id].wu.ToString();
-                        D_H_F.Text = "防：" + ALL_USER[id].fang.ToString();
-                        D_H_S.Text = "速：" + ALL_USER[id].su.ToString();
-                        D_H_Y.Text = "运：" + ALL_USER[id].yun.ToString();
-                        D_H_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+                            D_H_W.Text = "武：" + ALL_USER[id].wu.ToString();
+                            D_H_F.Text = "防：" + ALL_USER[id].fang.ToString();
+                            D_H_S.Text = "速：" + ALL_USER[id].su.ToString();
+                            D_H_Y.Text = "运：" + ALL_USER[id].yun.ToString();
+                            D_H_L.Text = "灵：" + ALL_USER[id].ling.ToString();
 
-                        H_I_T.Checked = ALL_USER[id].inTeam;
-                        break;
-                    case LiuMengLi://柳梦璃
-                        L_G_T.Text = "柳梦璃-" + ALL_USER[id].pos.ToString();
+                            H_I_T.Checked = ALL_USER[id].inTeam;
+                            break;
+                        case LiuMengLi://柳梦璃
+                            L_G_T.Text = "柳梦璃-" + ALL_USER[id].pos.ToString();
 
-                        L_J.Maximum = ALL_USER[id].hp.max;
-                        L_J.Value = ALL_USER[id].hp.now;
-                        L_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                            L_J.Maximum = ALL_USER[id].hp.max;
+                            L_J.Value = ALL_USER[id].hp.now;
+                            L_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
 
-                        L_S.Maximum = ALL_USER[id].mp.max;
-                        L_S.Value = ALL_USER[id].mp.now;
-                        L_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                            L_S.Maximum = ALL_USER[id].mp.max;
+                            L_S.Value = ALL_USER[id].mp.now;
+                            L_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
 
-                        L_Q.Maximum = 100;
-                        L_Q.Value = ALL_USER[id].rage.now;
-                        L_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
+                            L_Q.Maximum = 100;
+                            L_Q.Value = ALL_USER[id].rage.now;
+                            L_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
 
-                        D_L_W.Text = "武：" + ALL_USER[id].wu.ToString();
-                        D_L_F.Text = "防：" + ALL_USER[id].fang.ToString();
-                        D_L_S.Text = "速：" + ALL_USER[id].su.ToString();
-                        D_L_Y.Text = "运：" + ALL_USER[id].yun.ToString();
-                        D_L_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+                            D_L_W.Text = "武：" + ALL_USER[id].wu.ToString();
+                            D_L_F.Text = "防：" + ALL_USER[id].fang.ToString();
+                            D_L_S.Text = "速：" + ALL_USER[id].su.ToString();
+                            D_L_Y.Text = "运：" + ALL_USER[id].yun.ToString();
+                            D_L_L.Text = "灵：" + ALL_USER[id].ling.ToString();
 
-                        L_I_T.Checked = ALL_USER[id].inTeam;
-                        break;
-                    case MuRongZiYing://慕容紫英
-                        M_G_T.Text = "慕容紫英-" + ALL_USER[id].pos.ToString();
+                            L_I_T.Checked = ALL_USER[id].inTeam;
+                            break;
+                        case MuRongZiYing://慕容紫英
+                            M_G_T.Text = "慕容紫英-" + ALL_USER[id].pos.ToString();
 
-                        M_J.Maximum = ALL_USER[id].hp.max;
-                        M_J.Value = ALL_USER[id].hp.now;
-                        M_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                            M_J.Maximum = ALL_USER[id].hp.max;
+                            M_J.Value = ALL_USER[id].hp.now;
+                            M_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
 
-                        M_S.Maximum = ALL_USER[id].mp.max;
-                        M_S.Value = ALL_USER[id].mp.now;
-                        M_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                            M_S.Maximum = ALL_USER[id].mp.max;
+                            M_S.Value = ALL_USER[id].mp.now;
+                            M_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
 
-                        M_Q.Maximum = 100;
-                        M_Q.Value = ALL_USER[id].rage.now;
-                        M_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
+                            M_Q.Maximum = 100;
+                            M_Q.Value = ALL_USER[id].rage.now;
+                            M_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
 
-                        D_M_W.Text = "武：" + ALL_USER[id].wu.ToString();
-                        D_M_F.Text = "防：" + ALL_USER[id].fang.ToString();
-                        D_M_S.Text = "速：" + ALL_USER[id].su.ToString();
-                        D_M_Y.Text = "运：" + ALL_USER[id].yun.ToString();
-                        D_M_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+                            D_M_W.Text = "武：" + ALL_USER[id].wu.ToString();
+                            D_M_F.Text = "防：" + ALL_USER[id].fang.ToString();
+                            D_M_S.Text = "速：" + ALL_USER[id].su.ToString();
+                            D_M_Y.Text = "运：" + ALL_USER[id].yun.ToString();
+                            D_M_L.Text = "灵：" + ALL_USER[id].ling.ToString();
 
-                        M_I_T.Checked = ALL_USER[id].inTeam;
-                        break;
+                            M_I_T.Checked = ALL_USER[id].inTeam;
+                            break;
+                    }
+                }
+
+                for (int i = 0; i < 3; i++)
+                {
+                    switch (i)
+                    {
+                        case 0://左侧
+                            if (FIGHT_USER[i].inTeam == false)
+                            {
+                                L_U_G.Visible = false;
+                                break;
+                            }
+                            L_U_G.Visible = true;
+                            L_F_J_L.Text = FIGHT_USER[i].hp.now.ToString() + "/" + FIGHT_USER[i].hp.max.ToString();
+                            L_F_J.Maximum = FIGHT_USER[i].hp.max;
+                            L_F_J.Value = FIGHT_USER[i].hp.now;
+
+                            L_F_Q_L.Text = FIGHT_USER[i].rage.now.ToString() + "/" + FIGHT_USER[i].rage.max.ToString();
+                            L_F_Q.Maximum = FIGHT_USER[i].rage.max;
+                            L_F_Q.Value = FIGHT_USER[i].rage.now;
+
+                            L_F_S_L.Text = FIGHT_USER[i].mp.now.ToString() + "/" + FIGHT_USER[i].mp.max.ToString();
+                            L_F_S.Maximum = FIGHT_USER[i].mp.max;
+                            L_F_S.Value = FIGHT_USER[i].mp.now;
+                            break;
+                        case 1://中间
+                            if (FIGHT_USER[i].inTeam == false)
+                            {
+                                M_U_G.Visible = false;
+                                break;
+                            }
+                            M_U_G.Visible = true;
+                            M_F_J_L.Text = FIGHT_USER[i].hp.now.ToString() + "/" + FIGHT_USER[i].hp.max.ToString();
+                            M_F_J.Maximum = FIGHT_USER[i].hp.max;
+                            M_F_J.Value = FIGHT_USER[i].hp.now;
+
+                            M_F_Q_L.Text = FIGHT_USER[i].rage.now.ToString() + "/" + FIGHT_USER[i].rage.max.ToString();
+                            M_F_Q.Maximum = FIGHT_USER[i].rage.max;
+                            M_F_Q.Value = FIGHT_USER[i].rage.now;
+
+                            M_F_S_L.Text = FIGHT_USER[i].mp.now.ToString() + "/" + FIGHT_USER[i].mp.max.ToString();
+                            M_F_S.Maximum = FIGHT_USER[i].mp.max;
+                            M_F_S.Value = FIGHT_USER[i].mp.now;
+                            break;
+                        case 2://右侧
+                            if (FIGHT_USER[i].inTeam == false)
+                            {
+                                R_U_G.Visible = false;
+                                break;
+                            }
+                            R_U_G.Visible = true;
+                            R_F_J_L.Text = FIGHT_USER[i].hp.now.ToString() + "/" + FIGHT_USER[i].hp.max.ToString();
+                            R_F_J.Maximum = FIGHT_USER[i].hp.max;
+                            R_F_J.Value = FIGHT_USER[i].hp.now;
+
+                            R_F_Q_L.Text = FIGHT_USER[i].rage.now.ToString() + "/" + FIGHT_USER[i].rage.max.ToString();
+                            R_F_Q.Maximum = FIGHT_USER[i].rage.max;
+                            R_F_Q.Value = FIGHT_USER[i].rage.now;
+
+                            R_F_S_L.Text = FIGHT_USER[i].mp.now.ToString() + "/" + FIGHT_USER[i].mp.max.ToString();
+                            R_F_S.Maximum = FIGHT_USER[i].mp.max;
+                            R_F_S.Value = FIGHT_USER[i].mp.now;
+                            break;
+                    }
                 }
             }
+            catch (Exception)
+            {
+            }
+            
         }
 
         //获得HP MP RAGE(非战斗时)
@@ -390,6 +471,101 @@ namespace PAL4_EDIT
                 Write2Byte(process_handle, BASE_ADDR + 0x894 + MuRongZiYing * 0xb14, (Int16)ALL_USER[MuRongZiYing].rage.max);
             if (M_S_S.Checked)
                 Write2Byte(process_handle, BASE_ADDR + 0x898 + MuRongZiYing * 0xb14, (Int16)ALL_USER[MuRongZiYing].mp.max);
+
+            if (is_fight)//战斗时的数据锁定
+            {
+                Int32 out_data = 0;
+                Int32 FIGHT_ADDR = 0;
+
+                Int32[] BASE_ADDR_FIGHT = new Int32[3];//人物基址  从作往右0 1 2
+
+                //获取人物战斗地址
+                if (Read4Byte(process_handle, 0x8F3128, out out_data) == false)
+                    return;
+                if (Read4Byte(process_handle, out_data + 0x34, out out_data) == false)
+                    return;
+                FIGHT_ADDR = out_data;
+
+
+                //获取左侧人物地址
+                if (Read4Byte(process_handle, FIGHT_ADDR, out BASE_ADDR_FIGHT[0]) == false)
+                    return;
+
+                if (Read4Byte(process_handle, FIGHT_ADDR + 4, out BASE_ADDR_FIGHT[1]) == false)
+                    return;
+
+                if (Read4Byte(process_handle, FIGHT_ADDR + 8, out BASE_ADDR_FIGHT[2]) == false)
+                    return;
+
+                Int32[] f_data = new Int32[3];
+                Read4Byte(process_handle, BASE_ADDR_FIGHT[0], out f_data[0]);
+                Read4Byte(process_handle, BASE_ADDR_FIGHT[1], out f_data[1]);
+                Read4Byte(process_handle, BASE_ADDR_FIGHT[2], out f_data[2]);
+
+                //如果左边在队伍中
+                if (f_data[0] == 0x846008 && FIGHT_USER[0].inTeam == true)
+                {
+                    if (L_F_J_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x23C, (Int16)FIGHT_USER[0].hp.max) == false)
+                            return;
+                    }
+
+                    if (L_F_Q_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x240, (Int16)FIGHT_USER[0].rage.max) == false)
+                            return;
+                    }
+
+                    if (L_F_S_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x244, (Int16)FIGHT_USER[0].mp.max) == false)
+                            return;
+                    }
+                }
+
+                if (f_data[1] == 0x846008 && FIGHT_USER[1].inTeam == true)
+                {
+                    if (M_F_J_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x23C, (Int16)FIGHT_USER[1].hp.max) == false)
+                            return;
+                    }
+
+                    if (M_F_Q_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x240, (Int16)FIGHT_USER[1].rage.max) == false)
+                            return;
+                    }
+
+                    if (M_F_S_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x244, (Int16)FIGHT_USER[1].mp.max) == false)
+                            return;
+                    }
+                }
+
+                if (f_data[0] == 0x846008 && FIGHT_USER[0].inTeam == true)
+                {
+                    if (R_F_J_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x23C, (Int16)FIGHT_USER[2].hp.max) == false)
+                            return;
+                    }
+
+                    if (R_F_Q_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x240, (Int16)FIGHT_USER[2].rage.max) == false)
+                            return;
+                    }
+
+                    if (R_F_S_S.Checked == true)
+                    {
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x244, (Int16)FIGHT_USER[2].mp.max) == false)
+                            return;
+                    }
+                }
+            }
         }
         //获得HP MP RAGE(战斗时)
         private void Get_HMR_Fight()
@@ -430,10 +606,14 @@ namespace PAL4_EDIT
             Int16[] mp_now = new Int16[3];
             Int16[] mp_max = new Int16[3];
             Int16[] rage = new Int16[3];
-            textBox1.Clear();
+            
             for (int i = 0; i < 3; i++)//获取场上人物的数据
             {
-                if (f_data[i] != 0x846008) continue;
+                if (f_data[i] != 0x846008)
+                {
+                    FIGHT_USER[i].inTeam = false;
+                    continue;
+                }
                 if (Read2Byte(process_handle, BASE_ADDR[i] + 0x158, out hp_max[i]) == false)
                     return;
                 if (Read2Byte(process_handle, BASE_ADDR[i] + 0x23C, out hp_now[i]) == false)
@@ -446,10 +626,15 @@ namespace PAL4_EDIT
 
                 if (Read2Byte(process_handle, BASE_ADDR[i] + 0x240, out rage[i]) == false)
                     return;
-                textBox1.AppendText(hp_now[i].ToString() + "/" + hp_max[i].ToString() + "   ");
-                textBox1.AppendText(mp_now[i].ToString() + "/" + mp_max[i].ToString() + "   ");
-                textBox1.AppendText(rage[i].ToString() + "/100\r\n");
+                FIGHT_USER[i].hp.max = hp_max[i];
+                FIGHT_USER[i].hp.now = hp_now[i];
 
+                FIGHT_USER[i].mp.max = mp_max[i];
+                FIGHT_USER[i].mp.now = mp_now[i];
+
+                FIGHT_USER[i].rage.max = 100;
+                FIGHT_USER[i].rage.now = rage[i];
+                FIGHT_USER[i].inTeam = true;
             }
         }
        
@@ -512,6 +697,12 @@ namespace PAL4_EDIT
                 set_flag();
             if(is_fight)
                 Get_HMR_Fight();
+            else
+            {
+                FIGHT_USER[0].inTeam = false;
+                FIGHT_USER[1].inTeam = false;
+                FIGHT_USER[2].inTeam = false;
+            }
             if (h_no_boss.Checked)
                 Set_HMODE();
             Set_Speed();

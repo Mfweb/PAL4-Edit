@@ -50,7 +50,7 @@
             this.Y_Q_S = new System.Windows.Forms.CheckBox();
             this.Y_J_S = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.h_no_boss = new System.Windows.Forms.CheckBox();
             this.run_fast = new System.Windows.Forms.CheckBox();
             this.flag_infinite = new System.Windows.Forms.CheckBox();
             this.no_boss = new System.Windows.Forms.CheckBox();
@@ -114,24 +114,67 @@
             this.M_S_S = new System.Windows.Forms.CheckBox();
             this.M_Q_S = new System.Windows.Forms.CheckBox();
             this.M_J_S = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.h_no_boss = new System.Windows.Forms.CheckBox();
+            this.L_U_G = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.sys = new System.Windows.Forms.TabPage();
+            this.fight = new System.Windows.Forms.TabPage();
+            this.L_F_S_L = new System.Windows.Forms.Label();
+            this.L_F_Q_L = new System.Windows.Forms.Label();
+            this.L_F_J_L = new System.Windows.Forms.Label();
+            this.L_F_S = new System.Windows.Forms.ProgressBar();
+            this.label8 = new System.Windows.Forms.Label();
+            this.L_F_Q = new System.Windows.Forms.ProgressBar();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.L_F_J = new System.Windows.Forms.ProgressBar();
+            this.L_F_S_S = new System.Windows.Forms.CheckBox();
+            this.L_F_Q_S = new System.Windows.Forms.CheckBox();
+            this.L_F_J_S = new System.Windows.Forms.CheckBox();
+            this.M_U_G = new System.Windows.Forms.GroupBox();
+            this.M_F_S_L = new System.Windows.Forms.Label();
+            this.M_F_Q_L = new System.Windows.Forms.Label();
+            this.M_F_J_L = new System.Windows.Forms.Label();
+            this.M_F_S = new System.Windows.Forms.ProgressBar();
+            this.label17 = new System.Windows.Forms.Label();
+            this.M_F_Q = new System.Windows.Forms.ProgressBar();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.M_F_J = new System.Windows.Forms.ProgressBar();
+            this.M_F_S_S = new System.Windows.Forms.CheckBox();
+            this.M_F_Q_S = new System.Windows.Forms.CheckBox();
+            this.M_F_J_S = new System.Windows.Forms.CheckBox();
+            this.R_U_G = new System.Windows.Forms.GroupBox();
+            this.R_F_S_L = new System.Windows.Forms.Label();
+            this.R_F_Q_L = new System.Windows.Forms.Label();
+            this.R_F_J_L = new System.Windows.Forms.Label();
+            this.R_F_S = new System.Windows.Forms.ProgressBar();
+            this.label23 = new System.Windows.Forms.Label();
+            this.R_F_Q = new System.Windows.Forms.ProgressBar();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.R_F_J = new System.Windows.Forms.ProgressBar();
+            this.R_F_S_S = new System.Windows.Forms.CheckBox();
+            this.R_F_Q_S = new System.Windows.Forms.CheckBox();
+            this.R_F_J_S = new System.Windows.Forms.CheckBox();
             this.Y_G_T.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.H_G_T.SuspendLayout();
             this.L_G_T.SuspendLayout();
             this.M_G_T.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.L_U_G.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.sys.SuspendLayout();
+            this.fight.SuspendLayout();
+            this.M_U_G.SuspendLayout();
+            this.R_U_G.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(939, 537);
+            this.button1.Location = new System.Drawing.Point(919, 58);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(303, 129);
+            this.button1.Size = new System.Drawing.Size(258, 92);
             this.button1.TabIndex = 0;
-            this.button1.Text = "载入";
+            this.button1.Text = "加载";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -328,26 +371,20 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // groupBox2
+            // h_no_boss
             // 
-            this.groupBox2.Controls.Add(this.h_no_boss);
-            this.groupBox2.Controls.Add(this.run_fast);
-            this.groupBox2.Controls.Add(this.flag_infinite);
-            this.groupBox2.Controls.Add(this.no_boss);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.g_m);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(12, 522);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(921, 144);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "系统";
+            this.h_no_boss.AutoSize = true;
+            this.h_no_boss.Location = new System.Drawing.Point(34, 125);
+            this.h_no_boss.Name = "h_no_boss";
+            this.h_no_boss.Size = new System.Drawing.Size(618, 28);
+            this.h_no_boss.TabIndex = 8;
+            this.h_no_boss.Text = "高级不遇敌(碰到敌人直接消失，战斗剧情直接过场。)";
+            this.h_no_boss.UseVisualStyleBackColor = true;
             // 
             // run_fast
             // 
             this.run_fast.AutoSize = true;
-            this.run_fast.Location = new System.Drawing.Point(373, 42);
+            this.run_fast.Location = new System.Drawing.Point(383, 44);
             this.run_fast.Name = "run_fast";
             this.run_fast.Size = new System.Drawing.Size(138, 28);
             this.run_fast.TabIndex = 7;
@@ -357,7 +394,7 @@
             // flag_infinite
             // 
             this.flag_infinite.AutoSize = true;
-            this.flag_infinite.Location = new System.Drawing.Point(373, 89);
+            this.flag_infinite.Location = new System.Drawing.Point(383, 91);
             this.flag_infinite.Name = "flag_infinite";
             this.flag_infinite.Size = new System.Drawing.Size(186, 28);
             this.flag_infinite.TabIndex = 6;
@@ -367,7 +404,7 @@
             // no_boss
             // 
             this.no_boss.AutoSize = true;
-            this.no_boss.Location = new System.Drawing.Point(24, 89);
+            this.no_boss.Location = new System.Drawing.Point(34, 91);
             this.no_boss.Name = "no_boss";
             this.no_boss.Size = new System.Drawing.Size(306, 28);
             this.no_boss.TabIndex = 5;
@@ -376,7 +413,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(251, 34);
+            this.button2.Location = new System.Drawing.Point(261, 36);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 46);
             this.button2.TabIndex = 4;
@@ -386,7 +423,7 @@
             // 
             // g_m
             // 
-            this.g_m.Location = new System.Drawing.Point(99, 39);
+            this.g_m.Location = new System.Drawing.Point(118, 41);
             this.g_m.Name = "g_m";
             this.g_m.Size = new System.Drawing.Size(137, 35);
             this.g_m.TabIndex = 3;
@@ -394,7 +431,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 42);
+            this.label4.Location = new System.Drawing.Point(30, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 24);
             this.label4.TabIndex = 2;
@@ -964,47 +1001,436 @@
             this.M_J_S.Text = "锁定";
             this.M_J_S.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // L_U_G
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 672);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1230, 374);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "战斗";
+            this.L_U_G.Controls.Add(this.L_F_S_L);
+            this.L_U_G.Controls.Add(this.L_F_Q_L);
+            this.L_U_G.Controls.Add(this.L_F_J_L);
+            this.L_U_G.Controls.Add(this.L_F_S);
+            this.L_U_G.Controls.Add(this.label8);
+            this.L_U_G.Controls.Add(this.L_F_Q);
+            this.L_U_G.Controls.Add(this.label9);
+            this.L_U_G.Controls.Add(this.label10);
+            this.L_U_G.Controls.Add(this.L_F_J);
+            this.L_U_G.Controls.Add(this.L_F_S_S);
+            this.L_U_G.Controls.Add(this.L_F_Q_S);
+            this.L_U_G.Controls.Add(this.L_F_J_S);
+            this.L_U_G.Location = new System.Drawing.Point(16, 25);
+            this.L_U_G.Name = "L_U_G";
+            this.L_U_G.Size = new System.Drawing.Size(279, 183);
+            this.L_U_G.TabIndex = 0;
+            this.L_U_G.TabStop = false;
+            this.L_U_G.Text = "左侧人物";
             // 
-            // textBox1
+            // tabControl1
             // 
-            this.textBox1.Location = new System.Drawing.Point(24, 34);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1192, 334);
-            this.textBox1.TabIndex = 0;
+            this.tabControl1.Controls.Add(this.sys);
+            this.tabControl1.Controls.Add(this.fight);
+            this.tabControl1.Location = new System.Drawing.Point(12, 522);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1224, 268);
+            this.tabControl1.TabIndex = 2;
             // 
-            // h_no_boss
+            // sys
             // 
-            this.h_no_boss.AutoSize = true;
-            this.h_no_boss.Location = new System.Drawing.Point(574, 42);
-            this.h_no_boss.Name = "h_no_boss";
-            this.h_no_boss.Size = new System.Drawing.Size(270, 76);
-            this.h_no_boss.TabIndex = 8;
-            this.h_no_boss.Text = "高级不遇敌\r\n(碰到敌人直接消失，\r\n战斗剧情直接过场。)";
-            this.h_no_boss.UseVisualStyleBackColor = true;
+            this.sys.Controls.Add(this.h_no_boss);
+            this.sys.Controls.Add(this.run_fast);
+            this.sys.Controls.Add(this.label4);
+            this.sys.Controls.Add(this.flag_infinite);
+            this.sys.Controls.Add(this.g_m);
+            this.sys.Controls.Add(this.no_boss);
+            this.sys.Controls.Add(this.button1);
+            this.sys.Controls.Add(this.button2);
+            this.sys.Location = new System.Drawing.Point(8, 39);
+            this.sys.Name = "sys";
+            this.sys.Padding = new System.Windows.Forms.Padding(3);
+            this.sys.Size = new System.Drawing.Size(1208, 221);
+            this.sys.TabIndex = 0;
+            this.sys.Text = "系统";
+            this.sys.UseVisualStyleBackColor = true;
+            // 
+            // fight
+            // 
+            this.fight.Controls.Add(this.R_U_G);
+            this.fight.Controls.Add(this.M_U_G);
+            this.fight.Controls.Add(this.L_U_G);
+            this.fight.Location = new System.Drawing.Point(8, 39);
+            this.fight.Name = "fight";
+            this.fight.Padding = new System.Windows.Forms.Padding(3);
+            this.fight.Size = new System.Drawing.Size(1208, 221);
+            this.fight.TabIndex = 1;
+            this.fight.Text = "战斗";
+            this.fight.UseVisualStyleBackColor = true;
+            // 
+            // L_F_S_L
+            // 
+            this.L_F_S_L.AutoSize = true;
+            this.L_F_S_L.Location = new System.Drawing.Point(46, 123);
+            this.L_F_S_L.Name = "L_F_S_L";
+            this.L_F_S_L.Size = new System.Drawing.Size(46, 24);
+            this.L_F_S_L.TabIndex = 26;
+            this.L_F_S_L.Text = "1/1";
+            // 
+            // L_F_Q_L
+            // 
+            this.L_F_Q_L.AutoSize = true;
+            this.L_F_Q_L.Location = new System.Drawing.Point(46, 77);
+            this.L_F_Q_L.Name = "L_F_Q_L";
+            this.L_F_Q_L.Size = new System.Drawing.Size(46, 24);
+            this.L_F_Q_L.TabIndex = 25;
+            this.L_F_Q_L.Text = "1/1";
+            // 
+            // L_F_J_L
+            // 
+            this.L_F_J_L.AutoSize = true;
+            this.L_F_J_L.Location = new System.Drawing.Point(46, 31);
+            this.L_F_J_L.Name = "L_F_J_L";
+            this.L_F_J_L.Size = new System.Drawing.Size(46, 24);
+            this.L_F_J_L.TabIndex = 24;
+            this.L_F_J_L.Text = "1/1";
+            // 
+            // L_F_S
+            // 
+            this.L_F_S.Location = new System.Drawing.Point(10, 150);
+            this.L_F_S.Name = "L_F_S";
+            this.L_F_S.Size = new System.Drawing.Size(255, 16);
+            this.L_F_S.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 123);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 24);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "神";
+            // 
+            // L_F_Q
+            // 
+            this.L_F_Q.Location = new System.Drawing.Point(10, 104);
+            this.L_F_Q.Name = "L_F_Q";
+            this.L_F_Q.Size = new System.Drawing.Size(255, 16);
+            this.L_F_Q.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 77);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 24);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "气";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 24);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "精";
+            // 
+            // L_F_J
+            // 
+            this.L_F_J.Location = new System.Drawing.Point(10, 58);
+            this.L_F_J.Name = "L_F_J";
+            this.L_F_J.Size = new System.Drawing.Size(255, 16);
+            this.L_F_J.TabIndex = 18;
+            // 
+            // L_F_S_S
+            // 
+            this.L_F_S_S.AutoSize = true;
+            this.L_F_S_S.Location = new System.Drawing.Point(175, 122);
+            this.L_F_S_S.Name = "L_F_S_S";
+            this.L_F_S_S.Size = new System.Drawing.Size(90, 28);
+            this.L_F_S_S.TabIndex = 29;
+            this.L_F_S_S.Text = "锁定";
+            this.L_F_S_S.UseVisualStyleBackColor = true;
+            // 
+            // L_F_Q_S
+            // 
+            this.L_F_Q_S.AutoSize = true;
+            this.L_F_Q_S.Location = new System.Drawing.Point(175, 76);
+            this.L_F_Q_S.Name = "L_F_Q_S";
+            this.L_F_Q_S.Size = new System.Drawing.Size(90, 28);
+            this.L_F_Q_S.TabIndex = 28;
+            this.L_F_Q_S.Text = "锁定";
+            this.L_F_Q_S.UseVisualStyleBackColor = true;
+            // 
+            // L_F_J_S
+            // 
+            this.L_F_J_S.AutoSize = true;
+            this.L_F_J_S.Location = new System.Drawing.Point(175, 30);
+            this.L_F_J_S.Name = "L_F_J_S";
+            this.L_F_J_S.Size = new System.Drawing.Size(90, 28);
+            this.L_F_J_S.TabIndex = 27;
+            this.L_F_J_S.Text = "锁定";
+            this.L_F_J_S.UseVisualStyleBackColor = true;
+            // 
+            // M_U_G
+            // 
+            this.M_U_G.Controls.Add(this.M_F_S_L);
+            this.M_U_G.Controls.Add(this.M_F_Q_L);
+            this.M_U_G.Controls.Add(this.M_F_J_L);
+            this.M_U_G.Controls.Add(this.M_F_S);
+            this.M_U_G.Controls.Add(this.label17);
+            this.M_U_G.Controls.Add(this.M_F_Q);
+            this.M_U_G.Controls.Add(this.label18);
+            this.M_U_G.Controls.Add(this.label19);
+            this.M_U_G.Controls.Add(this.M_F_J);
+            this.M_U_G.Controls.Add(this.M_F_S_S);
+            this.M_U_G.Controls.Add(this.M_F_Q_S);
+            this.M_U_G.Controls.Add(this.M_F_J_S);
+            this.M_U_G.Location = new System.Drawing.Point(301, 25);
+            this.M_U_G.Name = "M_U_G";
+            this.M_U_G.Size = new System.Drawing.Size(279, 183);
+            this.M_U_G.TabIndex = 1;
+            this.M_U_G.TabStop = false;
+            this.M_U_G.Text = "中间人物";
+            // 
+            // M_F_S_L
+            // 
+            this.M_F_S_L.AutoSize = true;
+            this.M_F_S_L.Location = new System.Drawing.Point(46, 123);
+            this.M_F_S_L.Name = "M_F_S_L";
+            this.M_F_S_L.Size = new System.Drawing.Size(46, 24);
+            this.M_F_S_L.TabIndex = 26;
+            this.M_F_S_L.Text = "1/1";
+            // 
+            // M_F_Q_L
+            // 
+            this.M_F_Q_L.AutoSize = true;
+            this.M_F_Q_L.Location = new System.Drawing.Point(46, 77);
+            this.M_F_Q_L.Name = "M_F_Q_L";
+            this.M_F_Q_L.Size = new System.Drawing.Size(46, 24);
+            this.M_F_Q_L.TabIndex = 25;
+            this.M_F_Q_L.Text = "1/1";
+            // 
+            // M_F_J_L
+            // 
+            this.M_F_J_L.AutoSize = true;
+            this.M_F_J_L.Location = new System.Drawing.Point(46, 31);
+            this.M_F_J_L.Name = "M_F_J_L";
+            this.M_F_J_L.Size = new System.Drawing.Size(46, 24);
+            this.M_F_J_L.TabIndex = 24;
+            this.M_F_J_L.Text = "1/1";
+            // 
+            // M_F_S
+            // 
+            this.M_F_S.Location = new System.Drawing.Point(10, 150);
+            this.M_F_S.Name = "M_F_S";
+            this.M_F_S.Size = new System.Drawing.Size(255, 16);
+            this.M_F_S.TabIndex = 23;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 123);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(34, 24);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "神";
+            // 
+            // M_F_Q
+            // 
+            this.M_F_Q.Location = new System.Drawing.Point(10, 104);
+            this.M_F_Q.Name = "M_F_Q";
+            this.M_F_Q.Size = new System.Drawing.Size(255, 16);
+            this.M_F_Q.TabIndex = 21;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 77);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(34, 24);
+            this.label18.TabIndex = 20;
+            this.label18.Text = "气";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 31);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(34, 24);
+            this.label19.TabIndex = 19;
+            this.label19.Text = "精";
+            // 
+            // M_F_J
+            // 
+            this.M_F_J.Location = new System.Drawing.Point(10, 58);
+            this.M_F_J.Name = "M_F_J";
+            this.M_F_J.Size = new System.Drawing.Size(255, 16);
+            this.M_F_J.TabIndex = 18;
+            // 
+            // M_F_S_S
+            // 
+            this.M_F_S_S.AutoSize = true;
+            this.M_F_S_S.Location = new System.Drawing.Point(175, 122);
+            this.M_F_S_S.Name = "M_F_S_S";
+            this.M_F_S_S.Size = new System.Drawing.Size(90, 28);
+            this.M_F_S_S.TabIndex = 29;
+            this.M_F_S_S.Text = "锁定";
+            this.M_F_S_S.UseVisualStyleBackColor = true;
+            // 
+            // M_F_Q_S
+            // 
+            this.M_F_Q_S.AutoSize = true;
+            this.M_F_Q_S.Location = new System.Drawing.Point(175, 76);
+            this.M_F_Q_S.Name = "M_F_Q_S";
+            this.M_F_Q_S.Size = new System.Drawing.Size(90, 28);
+            this.M_F_Q_S.TabIndex = 28;
+            this.M_F_Q_S.Text = "锁定";
+            this.M_F_Q_S.UseVisualStyleBackColor = true;
+            // 
+            // M_F_J_S
+            // 
+            this.M_F_J_S.AutoSize = true;
+            this.M_F_J_S.Location = new System.Drawing.Point(175, 30);
+            this.M_F_J_S.Name = "M_F_J_S";
+            this.M_F_J_S.Size = new System.Drawing.Size(90, 28);
+            this.M_F_J_S.TabIndex = 27;
+            this.M_F_J_S.Text = "锁定";
+            this.M_F_J_S.UseVisualStyleBackColor = true;
+            // 
+            // R_U_G
+            // 
+            this.R_U_G.Controls.Add(this.R_F_S_L);
+            this.R_U_G.Controls.Add(this.R_F_Q_L);
+            this.R_U_G.Controls.Add(this.R_F_J_L);
+            this.R_U_G.Controls.Add(this.R_F_S);
+            this.R_U_G.Controls.Add(this.label23);
+            this.R_U_G.Controls.Add(this.R_F_Q);
+            this.R_U_G.Controls.Add(this.label27);
+            this.R_U_G.Controls.Add(this.label28);
+            this.R_U_G.Controls.Add(this.R_F_J);
+            this.R_U_G.Controls.Add(this.R_F_S_S);
+            this.R_U_G.Controls.Add(this.R_F_Q_S);
+            this.R_U_G.Controls.Add(this.R_F_J_S);
+            this.R_U_G.Location = new System.Drawing.Point(586, 25);
+            this.R_U_G.Name = "R_U_G";
+            this.R_U_G.Size = new System.Drawing.Size(279, 183);
+            this.R_U_G.TabIndex = 2;
+            this.R_U_G.TabStop = false;
+            this.R_U_G.Text = "右侧人物";
+            // 
+            // R_F_S_L
+            // 
+            this.R_F_S_L.AutoSize = true;
+            this.R_F_S_L.Location = new System.Drawing.Point(46, 123);
+            this.R_F_S_L.Name = "R_F_S_L";
+            this.R_F_S_L.Size = new System.Drawing.Size(46, 24);
+            this.R_F_S_L.TabIndex = 26;
+            this.R_F_S_L.Text = "1/1";
+            // 
+            // R_F_Q_L
+            // 
+            this.R_F_Q_L.AutoSize = true;
+            this.R_F_Q_L.Location = new System.Drawing.Point(46, 77);
+            this.R_F_Q_L.Name = "R_F_Q_L";
+            this.R_F_Q_L.Size = new System.Drawing.Size(46, 24);
+            this.R_F_Q_L.TabIndex = 25;
+            this.R_F_Q_L.Text = "1/1";
+            // 
+            // R_F_J_L
+            // 
+            this.R_F_J_L.AutoSize = true;
+            this.R_F_J_L.Location = new System.Drawing.Point(46, 31);
+            this.R_F_J_L.Name = "R_F_J_L";
+            this.R_F_J_L.Size = new System.Drawing.Size(46, 24);
+            this.R_F_J_L.TabIndex = 24;
+            this.R_F_J_L.Text = "1/1";
+            // 
+            // R_F_S
+            // 
+            this.R_F_S.Location = new System.Drawing.Point(10, 150);
+            this.R_F_S.Name = "R_F_S";
+            this.R_F_S.Size = new System.Drawing.Size(255, 16);
+            this.R_F_S.TabIndex = 23;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 123);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(34, 24);
+            this.label23.TabIndex = 22;
+            this.label23.Text = "神";
+            // 
+            // R_F_Q
+            // 
+            this.R_F_Q.Location = new System.Drawing.Point(10, 104);
+            this.R_F_Q.Name = "R_F_Q";
+            this.R_F_Q.Size = new System.Drawing.Size(255, 16);
+            this.R_F_Q.TabIndex = 21;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 77);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(34, 24);
+            this.label27.TabIndex = 20;
+            this.label27.Text = "气";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 31);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(34, 24);
+            this.label28.TabIndex = 19;
+            this.label28.Text = "精";
+            // 
+            // R_F_J
+            // 
+            this.R_F_J.Location = new System.Drawing.Point(10, 58);
+            this.R_F_J.Name = "R_F_J";
+            this.R_F_J.Size = new System.Drawing.Size(255, 16);
+            this.R_F_J.TabIndex = 18;
+            // 
+            // R_F_S_S
+            // 
+            this.R_F_S_S.AutoSize = true;
+            this.R_F_S_S.Location = new System.Drawing.Point(175, 122);
+            this.R_F_S_S.Name = "R_F_S_S";
+            this.R_F_S_S.Size = new System.Drawing.Size(90, 28);
+            this.R_F_S_S.TabIndex = 29;
+            this.R_F_S_S.Text = "锁定";
+            this.R_F_S_S.UseVisualStyleBackColor = true;
+            // 
+            // R_F_Q_S
+            // 
+            this.R_F_Q_S.AutoSize = true;
+            this.R_F_Q_S.Location = new System.Drawing.Point(175, 76);
+            this.R_F_Q_S.Name = "R_F_Q_S";
+            this.R_F_Q_S.Size = new System.Drawing.Size(90, 28);
+            this.R_F_Q_S.TabIndex = 28;
+            this.R_F_Q_S.Text = "锁定";
+            this.R_F_Q_S.UseVisualStyleBackColor = true;
+            // 
+            // R_F_J_S
+            // 
+            this.R_F_J_S.AutoSize = true;
+            this.R_F_J_S.Location = new System.Drawing.Point(175, 30);
+            this.R_F_J_S.Name = "R_F_J_S";
+            this.R_F_J_S.Size = new System.Drawing.Size(90, 28);
+            this.R_F_J_S.TabIndex = 27;
+            this.R_F_J_S.Text = "锁定";
+            this.R_F_J_S.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1253, 1064);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1253, 811);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.M_G_T);
             this.Controls.Add(this.L_G_T);
             this.Controls.Add(this.H_G_T);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.Y_G_T);
-            this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1013,16 +1439,22 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Y_G_T.ResumeLayout(false);
             this.Y_G_T.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.H_G_T.ResumeLayout(false);
             this.H_G_T.PerformLayout();
             this.L_G_T.ResumeLayout(false);
             this.L_G_T.PerformLayout();
             this.M_G_T.ResumeLayout(false);
             this.M_G_T.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.L_U_G.ResumeLayout(false);
+            this.L_U_G.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.sys.ResumeLayout(false);
+            this.sys.PerformLayout();
+            this.fight.ResumeLayout(false);
+            this.M_U_G.ResumeLayout(false);
+            this.M_U_G.PerformLayout();
+            this.R_U_G.ResumeLayout(false);
+            this.R_U_G.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1038,7 +1470,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar Y_J;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox g_m;
         private System.Windows.Forms.Label label4;
@@ -1102,7 +1533,6 @@
         private System.Windows.Forms.CheckBox H_I_T;
         private System.Windows.Forms.CheckBox L_I_T;
         private System.Windows.Forms.CheckBox M_I_T;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox Y_S_S;
         private System.Windows.Forms.CheckBox Y_Q_S;
         private System.Windows.Forms.CheckBox Y_J_S;
@@ -1115,8 +1545,49 @@
         private System.Windows.Forms.CheckBox M_S_S;
         private System.Windows.Forms.CheckBox M_Q_S;
         private System.Windows.Forms.CheckBox M_J_S;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox h_no_boss;
+        private System.Windows.Forms.GroupBox L_U_G;
+        private System.Windows.Forms.Label L_F_S_L;
+        private System.Windows.Forms.Label L_F_Q_L;
+        private System.Windows.Forms.Label L_F_J_L;
+        private System.Windows.Forms.ProgressBar L_F_S;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ProgressBar L_F_Q;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ProgressBar L_F_J;
+        private System.Windows.Forms.CheckBox L_F_S_S;
+        private System.Windows.Forms.CheckBox L_F_Q_S;
+        private System.Windows.Forms.CheckBox L_F_J_S;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage sys;
+        private System.Windows.Forms.TabPage fight;
+        private System.Windows.Forms.GroupBox R_U_G;
+        private System.Windows.Forms.Label R_F_S_L;
+        private System.Windows.Forms.Label R_F_Q_L;
+        private System.Windows.Forms.Label R_F_J_L;
+        private System.Windows.Forms.ProgressBar R_F_S;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ProgressBar R_F_Q;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ProgressBar R_F_J;
+        private System.Windows.Forms.CheckBox R_F_S_S;
+        private System.Windows.Forms.CheckBox R_F_Q_S;
+        private System.Windows.Forms.CheckBox R_F_J_S;
+        private System.Windows.Forms.GroupBox M_U_G;
+        private System.Windows.Forms.Label M_F_S_L;
+        private System.Windows.Forms.Label M_F_Q_L;
+        private System.Windows.Forms.Label M_F_J_L;
+        private System.Windows.Forms.ProgressBar M_F_S;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ProgressBar M_F_Q;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ProgressBar M_F_J;
+        private System.Windows.Forms.CheckBox M_F_S_S;
+        private System.Windows.Forms.CheckBox M_F_Q_S;
+        private System.Windows.Forms.CheckBox M_F_J_S;
     }
 }
 

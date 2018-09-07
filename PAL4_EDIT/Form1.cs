@@ -145,6 +145,10 @@ namespace PAL4_EDIT
                 return;
             }
 
+            if(is_fight == false && out_data != 0) {
+                nFightInFight();
+            }
+
             if (out_data == 0) is_fight = false;
             else is_fight = true;
             Text = "仙剑4内存修改器 - PAL4.exe - " + process_id.ToString() + (is_fight==true?" - 战斗中":"");
@@ -821,6 +825,22 @@ namespace PAL4_EDIT
             Write2Byte(process_handle, base_addr + 0xB08 + MuRongZiYing * 0xb14, indt);
         }
 
+        private void nFightInFight() {
+            if (fight_auto_lock.Checked) {
+                L_F_J_S.Checked = true;
+                L_F_Q_S.Checked = true;
+                L_F_S_S.Checked = true;
+
+                M_F_J_S.Checked = true;
+                M_F_Q_S.Checked = true;
+                M_F_S_S.Checked = true;
+
+                R_F_J_S.Checked = true;
+                R_F_Q_S.Checked = true;
+                R_F_S_S.Checked = true;
+            }
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
             if(comboBox1.SelectedIndex == 1) {
                 OffsetValue = 0x3E30;
@@ -838,6 +858,35 @@ namespace PAL4_EDIT
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             System.Diagnostics.Process.Start("https://github.com/Mfweb/PAL4-Edit");
+        }
+
+        private void fight_auto_lock_CheckedChanged(object sender, EventArgs e) {
+            if(fight_auto_lock.Checked) {
+                L_F_J_S.Checked = true;
+                L_F_Q_S.Checked = true;
+                L_F_S_S.Checked = true;
+
+                M_F_J_S.Checked = true;
+                M_F_Q_S.Checked = true;
+                M_F_S_S.Checked = true;
+
+                R_F_J_S.Checked = true;
+                R_F_Q_S.Checked = true;
+                R_F_S_S.Checked = true;
+            }
+            else {
+                L_F_J_S.Checked = false;
+                L_F_Q_S.Checked = false;
+                L_F_S_S.Checked = false;
+
+                M_F_J_S.Checked = false;
+                M_F_Q_S.Checked = false;
+                M_F_S_S.Checked = false;
+
+                R_F_J_S.Checked = false;
+                R_F_Q_S.Checked = false;
+                R_F_S_S.Checked = false;
+            }
         }
     }
 }

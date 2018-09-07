@@ -129,6 +129,8 @@
             this.L_F_J_S = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.sys = new System.Windows.Forms.TabPage();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.fight = new System.Windows.Forms.TabPage();
@@ -158,8 +160,7 @@
             this.M_F_S_S = new System.Windows.Forms.CheckBox();
             this.M_F_Q_S = new System.Windows.Forms.CheckBox();
             this.M_F_J_S = new System.Windows.Forms.CheckBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.fight_auto_lock = new System.Windows.Forms.CheckBox();
             this.Y_G_T.SuspendLayout();
             this.H_G_T.SuspendLayout();
             this.L_G_T.SuspendLayout();
@@ -399,7 +400,7 @@
             // h_no_boss
             // 
             this.h_no_boss.AutoSize = true;
-            this.h_no_boss.Location = new System.Drawing.Point(17, 62);
+            this.h_no_boss.Location = new System.Drawing.Point(17, 55);
             this.h_no_boss.Margin = new System.Windows.Forms.Padding(2);
             this.h_no_boss.Name = "h_no_boss";
             this.h_no_boss.Size = new System.Drawing.Size(312, 16);
@@ -410,7 +411,7 @@
             // run_fast
             // 
             this.run_fast.AutoSize = true;
-            this.run_fast.Location = new System.Drawing.Point(192, 22);
+            this.run_fast.Location = new System.Drawing.Point(192, 15);
             this.run_fast.Margin = new System.Windows.Forms.Padding(2);
             this.run_fast.Name = "run_fast";
             this.run_fast.Size = new System.Drawing.Size(72, 16);
@@ -421,7 +422,7 @@
             // flag_infinite
             // 
             this.flag_infinite.AutoSize = true;
-            this.flag_infinite.Location = new System.Drawing.Point(192, 46);
+            this.flag_infinite.Location = new System.Drawing.Point(192, 35);
             this.flag_infinite.Margin = new System.Windows.Forms.Padding(2);
             this.flag_infinite.Name = "flag_infinite";
             this.flag_infinite.Size = new System.Drawing.Size(96, 16);
@@ -432,7 +433,7 @@
             // no_boss
             // 
             this.no_boss.AutoSize = true;
-            this.no_boss.Location = new System.Drawing.Point(17, 46);
+            this.no_boss.Location = new System.Drawing.Point(17, 35);
             this.no_boss.Margin = new System.Windows.Forms.Padding(2);
             this.no_boss.Name = "no_boss";
             this.no_boss.Size = new System.Drawing.Size(156, 16);
@@ -442,7 +443,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(130, 18);
+            this.button2.Location = new System.Drawing.Point(130, 11);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(58, 23);
@@ -453,7 +454,7 @@
             // 
             // g_m
             // 
-            this.g_m.Location = new System.Drawing.Point(59, 20);
+            this.g_m.Location = new System.Drawing.Point(56, 11);
             this.g_m.Margin = new System.Windows.Forms.Padding(2);
             this.g_m.Name = "g_m";
             this.g_m.Size = new System.Drawing.Size(70, 21);
@@ -463,7 +464,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 22);
+            this.label4.Location = new System.Drawing.Point(15, 14);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
@@ -1247,6 +1248,7 @@
             // 
             // sys
             // 
+            this.sys.Controls.Add(this.fight_auto_lock);
             this.sys.Controls.Add(this.linkLabel2);
             this.sys.Controls.Add(this.linkLabel1);
             this.sys.Controls.Add(this.label5);
@@ -1267,6 +1269,28 @@
             this.sys.TabIndex = 0;
             this.sys.Text = "系统";
             this.sys.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(180, 91);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(209, 12);
+            this.linkLabel2.TabIndex = 12;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "https://github.com/Mfweb/PAL4-Edit";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(16, 91);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(113, 12);
+            this.linkLabel1.TabIndex = 11;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "https://mfweb.top/";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label5
             // 
@@ -1585,27 +1609,17 @@
             this.M_F_J_S.Text = "锁定";
             this.M_F_J_S.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // fight_auto_lock
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(16, 91);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(113, 12);
-            this.linkLabel1.TabIndex = 11;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://mfweb.top/";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(180, 91);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(209, 12);
-            this.linkLabel2.TabIndex = 12;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "https://github.com/Mfweb/PAL4-Edit";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.fight_auto_lock.AutoSize = true;
+            this.fight_auto_lock.Location = new System.Drawing.Point(17, 76);
+            this.fight_auto_lock.Margin = new System.Windows.Forms.Padding(2);
+            this.fight_auto_lock.Name = "fight_auto_lock";
+            this.fight_auto_lock.Size = new System.Drawing.Size(180, 16);
+            this.fight_auto_lock.TabIndex = 13;
+            this.fight_auto_lock.Text = "开始战斗时自动锁定所有状态";
+            this.fight_auto_lock.UseVisualStyleBackColor = true;
+            this.fight_auto_lock.CheckedChanged += new System.EventHandler(this.fight_auto_lock_CheckedChanged);
             // 
             // Form1
             // 
@@ -1780,6 +1794,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.CheckBox fight_auto_lock;
     }
 }
 

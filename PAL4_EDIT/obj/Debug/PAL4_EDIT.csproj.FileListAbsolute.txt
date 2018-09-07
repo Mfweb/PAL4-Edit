@@ -16,3 +16,13 @@ C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.Properties.Resou
 C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.csproj.GenerateResource.Cache
 C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.exe
 C:\Users\h\Desktop\PAL4\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.pdb
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\bin\Debug\PAL4_EDIT.exe.config
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\bin\Debug\PAL4_EDIT.exe
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\bin\Debug\PAL4_EDIT.pdb
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.csprojAssemblyReference.cache
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.Form1.resources
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.Properties.Resources.resources
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.csproj.GenerateResource.cache
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.csproj.CoreCompileInputs.cache
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.exe
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Debug\PAL4_EDIT.pdb

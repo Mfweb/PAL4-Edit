@@ -23,6 +23,9 @@ namespace PAL4_EDIT
         public const int LiuMengLi = 2;
         public const int MuRongZiYing = 3;
 
+        int OffsetValue = 0x3E30;
+        int FightOffsetValue = 0x2CC;
+
         public struct data_mn
         {
             public Int32 max;
@@ -60,6 +63,7 @@ namespace PAL4_EDIT
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = 1;
             ALL_USER = new USER_DATA[4];
             FIGHT_USER = new FIGHT_USER_DATA[3];
         }
@@ -134,7 +138,7 @@ namespace PAL4_EDIT
         private void Get_Fight_Status()
         {
             Int32 out_data = 0;
-            if (Read4Byte(process_handle, 0x8F3190, out out_data) == false)
+            if (Read4Byte(process_handle, 0x8F3190 + OffsetValue, out out_data) == false)
             {
                 is_fight = false;
                 Text = "仙剑4内存修改器 - PAL4.exe - " + process_id.ToString() + " - " + "战斗状态错误";
@@ -150,7 +154,7 @@ namespace PAL4_EDIT
         private Int32 Get_Money()
         {
             Int32 out_data = 0;
-            if(Read4Byte(process_handle, 0x8EB064,out out_data) == false)
+            if(Read4Byte(process_handle, 0x8EB064 + OffsetValue, out out_data) == false)
             {
                 return 0;
             }
@@ -167,7 +171,7 @@ namespace PAL4_EDIT
         {
             Int32 out_data = 0;
 
-            if (Read4Byte(process_handle, 0x8EB064, out out_data) == false)
+            if (Read4Byte(process_handle, 0x8EB064 + OffsetValue, out out_data) == false)
             {
                 MessageBox.Show("读取失败");
                 return false;
@@ -185,7 +189,7 @@ namespace PAL4_EDIT
         private Int16 Get_Pos(int id)
         {
             Int32 out_data = 0;
-            if (Read4Byte(process_handle, 0x8E1428, out out_data) == false)
+            if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out out_data) == false)
                 return -1;
             Int16 pos;
             if (Read2Byte(process_handle, out_data + 0x7A0 + id * 0xb14, out pos) == false)
@@ -371,7 +375,7 @@ namespace PAL4_EDIT
 
             Int32 out_data = 0;
             Int32 BASE_ADDR = 0;
-            if (Read4Byte(process_handle, 0x8E1428, out out_data) == false)
+            if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out out_data) == false)
             {
                 return;
             }
@@ -441,7 +445,7 @@ namespace PAL4_EDIT
         private void Set_HMR()
         {
             Int32 BASE_ADDR = 0;
-            if (Read4Byte(process_handle, 0x8E1428, out BASE_ADDR) == false)
+            if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out BASE_ADDR) == false)
                 return;
 
             if (Y_J_S.Checked)
@@ -480,7 +484,7 @@ namespace PAL4_EDIT
                 Int32[] BASE_ADDR_FIGHT = new Int32[3];//人物基址  从作往右0 1 2
 
                 //获取人物战斗地址
-                if (Read4Byte(process_handle, 0x8F3128, out out_data) == false)
+                if (Read4Byte(process_handle, 0x8F3128 + OffsetValue, out out_data) == false)
                     return;
                 if (Read4Byte(process_handle, out_data + 0x34, out out_data) == false)
                     return;
@@ -498,9 +502,9 @@ namespace PAL4_EDIT
                     return;
 
                 Int32[] f_data = new Int32[3];
-                Read4Byte(process_handle, BASE_ADDR_FIGHT[0], out f_data[0]);
-                Read4Byte(process_handle, BASE_ADDR_FIGHT[1], out f_data[1]);
-                Read4Byte(process_handle, BASE_ADDR_FIGHT[2], out f_data[2]);
+                Read4Byte(process_handle, BASE_ADDR_FIGHT[0] + FightOffsetValue, out f_data[0]);
+                Read4Byte(process_handle, BASE_ADDR_FIGHT[1] + FightOffsetValue, out f_data[1]);
+                Read4Byte(process_handle, BASE_ADDR_FIGHT[2] + FightOffsetValue, out f_data[2]);
 
                 //如果左边在队伍中
                 if (f_data[0] == 0x846008 && FIGHT_USER[0].inTeam == true)
@@ -577,7 +581,7 @@ namespace PAL4_EDIT
             Int32[] BASE_ADDR =  new Int32[3];//人物基址  从作往右0 1 2
 
             //获取人物战斗地址
-            if (Read4Byte(process_handle, 0x8F3128, out out_data) == false)
+            if (Read4Byte(process_handle, 0x8F3128 + OffsetValue, out out_data) == false)
                 return;
             if (Read4Byte(process_handle, out_data + 0x34, out out_data) == false)
                 return;
@@ -598,9 +602,9 @@ namespace PAL4_EDIT
             BASE_ADDR[2] = out_data;
 
             Int32[] f_data = new Int32[3];
-            Read4Byte(process_handle, BASE_ADDR[0], out f_data[0]);
-            Read4Byte(process_handle, BASE_ADDR[1], out f_data[1]);
-            Read4Byte(process_handle, BASE_ADDR[2], out f_data[2]);
+            Read4Byte(process_handle, BASE_ADDR[0] + FightOffsetValue, out f_data[0]);
+            Read4Byte(process_handle, BASE_ADDR[1] + FightOffsetValue, out f_data[1]);
+            Read4Byte(process_handle, BASE_ADDR[2] + FightOffsetValue, out f_data[2]);
             Int16[] hp_now = new Int16[3];//从作往右0 1 2
             Int16[] hp_max = new Int16[3];
             Int16[] mp_now = new Int16[3];
@@ -667,12 +671,14 @@ namespace PAL4_EDIT
             //MessageBox.Show("载入完成");
             Text = "仙剑4内存修改器 - PAL4.exe - " + process_id.ToString();
             timer1.Enabled = true;
+            button1.Enabled = false;
+            button1.Text = "加载完成";
         }
         //设置不遇敌
         private void set_no_boss()
         {
             Int32 b_addr = 0;
-            if (Read4Byte(process_handle,0x8E11FC,out b_addr) == false) return;
+            if (Read4Byte(process_handle, 0x8E11FC + OffsetValue, out b_addr) == false) return;
             if (Write2Byte(process_handle, b_addr + 0x2E0, 0x01) == false) return;//设置不遇敌
             if (Write4Byte(process_handle, b_addr + 0x2E4, 0x040A00000) == false) return;//设置不遇敌时间
         }
@@ -680,7 +686,7 @@ namespace PAL4_EDIT
         private void set_flag()
         {
             Int32 b_addr = 0;
-            if (Read4Byte(process_handle, 0x8F30E8, out b_addr) == false) return;
+            if (Read4Byte(process_handle, 0x8F30E8 + OffsetValue, out b_addr) == false) return;
             if (Write2Byte(process_handle, b_addr + 0x34, 0x00) == false) return;//设置已放置点数为0
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -723,13 +729,13 @@ namespace PAL4_EDIT
             if (run_fast.Checked)
             {
                 Int32 b_addr = 0;
-                if (Read4Byte(process_handle, 0x8E11FC, out b_addr) == false) return;
+                if (Read4Byte(process_handle, 0x8E11FC + OffsetValue, out b_addr) == false) return;
                 if (Write4Byte(process_handle, b_addr + 0x60, 0x44600000) == false) return;//设置速度
             }
             else//点了取消 要恢复以前的速度
             {
                 Int32 b_addr = 0;
-                if (Read4Byte(process_handle, 0x8E11FC, out b_addr) == false) return;
+                if (Read4Byte(process_handle, 0x8E11FC + OffsetValue, out b_addr) == false) return;
                 Int32 run_mode = 0;//移动模式0：走 1：慢跑 2：快跑
                 if (Read4Byte(process_handle, b_addr + 0x84, out run_mode) == false) return;//读出移动模式
                 switch(run_mode)
@@ -751,7 +757,7 @@ namespace PAL4_EDIT
         private void Set_HMODE()
         {
             Int32 BASE_ADDR = 0;
-            if (Read4Byte(process_handle, 0x8E1428, out BASE_ADDR) == false)
+            if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out BASE_ADDR) == false)
                 return;
             Write2Byte(process_handle, BASE_ADDR + 0xB08 + YunTianHe * 0xb14, 0x00);
             Write2Byte(process_handle, BASE_ADDR + 0xB08 + HanLingSha * 0xb14, 0x00);
@@ -767,7 +773,7 @@ namespace PAL4_EDIT
             else
                 indt = 1;
             Int32 base_addr;
-            if (Read4Byte(process_handle, 0x8E1428, out base_addr) == false)
+            if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out base_addr) == false)
                 return;
 
             Write2Byte(process_handle,base_addr + 0xB08 + YunTianHe * 0xb14,indt);
@@ -781,7 +787,7 @@ namespace PAL4_EDIT
             else
                 indt = 1;
             Int32 base_addr;
-            if (Read4Byte(process_handle, 0x8E1428, out base_addr) == false)
+            if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out base_addr) == false)
                 return;
 
             Write2Byte(process_handle, base_addr + 0xB08 + HanLingSha * 0xb14, indt);
@@ -795,7 +801,7 @@ namespace PAL4_EDIT
             else
                 indt = 1;
             Int32 base_addr;
-            if (Read4Byte(process_handle, 0x8E1428, out base_addr) == false)
+            if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out base_addr) == false)
                 return;
 
             Write2Byte(process_handle, base_addr + 0xB08 + LiuMengLi * 0xb14, indt);
@@ -809,10 +815,29 @@ namespace PAL4_EDIT
             else
                 indt = 1;
             Int32 base_addr;
-            if (Read4Byte(process_handle, 0x8E1428, out base_addr) == false)
+            if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out base_addr) == false)
                 return;
 
             Write2Byte(process_handle, base_addr + 0xB08 + MuRongZiYing * 0xb14, indt);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            if(comboBox1.SelectedIndex == 1) {
+                OffsetValue = 0x3E30;
+                FightOffsetValue = 0x2CC;
+            }
+            else {
+                OffsetValue = 0;
+                FightOffsetValue = 0;
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start("https://mfweb.top/");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            System.Diagnostics.Process.Start("https://github.com/Mfweb/PAL4-Edit");
         }
     }
 }

@@ -28,10 +28,10 @@ namespace PAL4_EDIT
 
         public struct data_mn
         {
-            public Int32 max;
-            public Int32 now;
+            public UInt16 max;
+            public UInt16 now;
         }
-        //用户数据
+        //角色数据
         public struct USER_DATA
         {
             public data_mn hp;  //精
@@ -42,6 +42,11 @@ namespace PAL4_EDIT
             public UInt16 su;    //速
             public UInt16 yun;   //运
             public UInt16 ling;  //灵
+            public UInt16 wuFinal;    //武 加成后（显示）
+            public UInt16 fangFinal;  //防
+            public UInt16 suFinal;    //速
+            public UInt16 yunFinal;   //运
+            public UInt16 lingFinal;  //灵
             public Int16 pos;   //在队伍中的位置
             public bool inTeam;
         }
@@ -206,97 +211,105 @@ namespace PAL4_EDIT
             {
                 for (int id = 0; id < 4; id++)
                 {
+                    string displayPos = ALL_USER[id].pos.ToString();
+                    string displayHPText = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                    string displayMPText = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                    string displayWuText = "武：" + ALL_USER[id].wu.ToString() + "(" + ALL_USER[id].wuFinal.ToString() + ")";
+                    string displayFangText = "防：" + ALL_USER[id].fang.ToString() + "(" + ALL_USER[id].fangFinal.ToString() + ")";
+                    string displaySuText = "速：" + ALL_USER[id].su.ToString() + "(" + ALL_USER[id].suFinal.ToString() + ")";
+                    string displayYunText = "运：" + ALL_USER[id].yun.ToString() + "(" + ALL_USER[id].yunFinal.ToString() + ")";
+                    string displayLingText = "灵：" + ALL_USER[id].ling.ToString() + "(" + ALL_USER[id].lingFinal.ToString() + ")";
                     switch (id)
                     {
                         case YunTianHe://云天河
-                            Y_G_T.Text = "云天河-" + ALL_USER[id].pos.ToString();
+                            Y_G_T.Text = "云天河-" + displayPos;
 
                             Y_J.Maximum = ALL_USER[id].hp.max;
                             Y_J.Value = ALL_USER[id].hp.now;
-                            Y_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                            Y_J_L.Text = displayHPText;
 
                             Y_S.Maximum = ALL_USER[id].mp.max;
                             Y_S.Value = ALL_USER[id].mp.now;
-                            Y_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                            Y_S_L.Text = displayMPText;
 
                             Y_Q.Maximum = 100;
                             Y_Q.Value = ALL_USER[id].rage.now;
                             Y_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
 
-                            D_Y_W.Text = "武：" + ALL_USER[id].wu.ToString();
-                            D_Y_F.Text = "防：" + ALL_USER[id].fang.ToString();
-                            D_Y_S.Text = "速：" + ALL_USER[id].su.ToString();
-                            D_Y_Y.Text = "运：" + ALL_USER[id].yun.ToString();
-                            D_Y_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+                            D_Y_W.Text = displayWuText;
+                            D_Y_F.Text = displayFangText;
+                            D_Y_S.Text = displaySuText;
+                            D_Y_Y.Text = displayYunText;
+                            D_Y_L.Text = displayLingText;
 
                             Y_I_T.Checked = ALL_USER[id].inTeam;
                             break;
                         case HanLingSha://韩菱纱
-                            H_G_T.Text = "韩菱纱-" + ALL_USER[id].pos.ToString();
+                            H_G_T.Text = "韩菱纱-" + displayPos;
 
                             H_J.Maximum = ALL_USER[id].hp.max;
                             H_J.Value = ALL_USER[id].hp.now;
-                            H_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                            H_J_L.Text = displayHPText;
 
                             H_S.Maximum = ALL_USER[id].mp.max;
                             H_S.Value = ALL_USER[id].mp.now;
-                            H_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                            H_S_L.Text = displayMPText;
 
                             H_Q.Maximum = 100;
                             H_Q.Value = ALL_USER[id].rage.now;
                             H_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
 
-                            D_H_W.Text = "武：" + ALL_USER[id].wu.ToString();
-                            D_H_F.Text = "防：" + ALL_USER[id].fang.ToString();
-                            D_H_S.Text = "速：" + ALL_USER[id].su.ToString();
-                            D_H_Y.Text = "运：" + ALL_USER[id].yun.ToString();
-                            D_H_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+                            D_H_W.Text = displayWuText;
+                            D_H_F.Text = displayFangText;
+                            D_H_S.Text = displaySuText;
+                            D_H_Y.Text = displayYunText;
+                            D_H_L.Text = displayLingText;
 
                             H_I_T.Checked = ALL_USER[id].inTeam;
                             break;
                         case LiuMengLi://柳梦璃
-                            L_G_T.Text = "柳梦璃-" + ALL_USER[id].pos.ToString();
+                            L_G_T.Text = "柳梦璃-" + displayPos;
 
                             L_J.Maximum = ALL_USER[id].hp.max;
                             L_J.Value = ALL_USER[id].hp.now;
-                            L_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                            L_J_L.Text = displayHPText;
 
                             L_S.Maximum = ALL_USER[id].mp.max;
                             L_S.Value = ALL_USER[id].mp.now;
-                            L_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                            L_S_L.Text = displayMPText;
 
                             L_Q.Maximum = 100;
                             L_Q.Value = ALL_USER[id].rage.now;
                             L_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
 
-                            D_L_W.Text = "武：" + ALL_USER[id].wu.ToString();
-                            D_L_F.Text = "防：" + ALL_USER[id].fang.ToString();
-                            D_L_S.Text = "速：" + ALL_USER[id].su.ToString();
-                            D_L_Y.Text = "运：" + ALL_USER[id].yun.ToString();
-                            D_L_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+                            D_L_W.Text = displayWuText;
+                            D_L_F.Text = displayFangText;
+                            D_L_S.Text = displaySuText;
+                            D_L_Y.Text = displayYunText;
+                            D_L_L.Text = displayLingText;
 
                             L_I_T.Checked = ALL_USER[id].inTeam;
                             break;
                         case MuRongZiYing://慕容紫英
-                            M_G_T.Text = "慕容紫英-" + ALL_USER[id].pos.ToString();
+                            M_G_T.Text = "慕容紫英-" + displayPos;
 
                             M_J.Maximum = ALL_USER[id].hp.max;
                             M_J.Value = ALL_USER[id].hp.now;
-                            M_J_L.Text = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
+                            M_J_L.Text = displayHPText;
 
                             M_S.Maximum = ALL_USER[id].mp.max;
                             M_S.Value = ALL_USER[id].mp.now;
-                            M_S_L.Text = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
+                            M_S_L.Text = displayMPText;
 
                             M_Q.Maximum = 100;
                             M_Q.Value = ALL_USER[id].rage.now;
                             M_Q_L.Text = ALL_USER[id].rage.now.ToString() + "/100";
 
-                            D_M_W.Text = "武：" + ALL_USER[id].wu.ToString();
-                            D_M_F.Text = "防：" + ALL_USER[id].fang.ToString();
-                            D_M_S.Text = "速：" + ALL_USER[id].su.ToString();
-                            D_M_Y.Text = "运：" + ALL_USER[id].yun.ToString();
-                            D_M_L.Text = "灵：" + ALL_USER[id].ling.ToString();
+                            D_M_W.Text = displayWuText;
+                            D_M_F.Text = displayFangText;
+                            D_M_S.Text = displaySuText;
+                            D_M_Y.Text = displayYunText;
+                            D_M_L.Text = displayLingText;
 
                             M_I_T.Checked = ALL_USER[id].inTeam;
                             break;
@@ -397,28 +410,40 @@ namespace PAL4_EDIT
                 UInt16 yun = 0;
                 UInt16 ling = 0;
                 UInt16 isteam = 0;
-                if (Read2Byte(process_handle, BASE_ADDR + 0x890 + id * 0xb14, out hp_now) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x890 + id * 0xb14, out ALL_USER[id].hp.now) == false)
                     return; 
-                if (Read2Byte(process_handle, BASE_ADDR + 0x7ac + id * 0xb14, out hp_max) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x7ac + id * 0xb14, out ALL_USER[id].hp.max) == false)
                     return;
 
-                if (Read2Byte(process_handle, BASE_ADDR + 0x898 + id * 0xb14, out mp_now) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x898 + id * 0xb14, out ALL_USER[id].mp.now) == false)
                     return;
-                if (Read2Byte(process_handle, BASE_ADDR + 0x7b4 + id * 0xb14, out mp_max) == false)
-                    return;
-
-                if (Read2Byte(process_handle, BASE_ADDR + 0x894 + id * 0xb14, out rage) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x7b4 + id * 0xb14, out ALL_USER[id].mp.max) == false)
                     return;
 
-                if (Read2Byte(process_handle, BASE_ADDR + 0x668 + id * 0xb14, out wu) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x894 + id * 0xb14, out ALL_USER[id].rage.now) == false)
                     return;
-                if (Read2Byte(process_handle, BASE_ADDR + 0x66c + id * 0xb14, out fang) == false)
+
+                if (Read2Byte(process_handle, BASE_ADDR + 0x668 + id * 0xb14, out ALL_USER[id].wu) == false)
                     return;
-                if (Read2Byte(process_handle, BASE_ADDR + 0x670 + id * 0xb14, out su) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x66c + id * 0xb14, out ALL_USER[id].fang) == false)
                     return;
-                if (Read2Byte(process_handle, BASE_ADDR + 0x674 + id * 0xb14, out yun) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x670 + id * 0xb14, out ALL_USER[id].su) == false)
                     return;
-                if (Read2Byte(process_handle, BASE_ADDR + 0x678 + id * 0xb14, out ling) == false)
+                if (Read2Byte(process_handle, BASE_ADDR + 0x674 + id * 0xb14, out ALL_USER[id].yun) == false)
+                    return;
+                if (Read2Byte(process_handle, BASE_ADDR + 0x678 + id * 0xb14, out ALL_USER[id].ling) == false)
+                    return;
+
+
+                if (Read2Byte(process_handle, BASE_ADDR + 0x7b8 + id * 0xb14, out ALL_USER[id].wuFinal) == false)
+                    return;
+                if (Read2Byte(process_handle, BASE_ADDR + 0x7bc + id * 0xb14, out ALL_USER[id].fangFinal) == false)
+                    return;
+                if (Read2Byte(process_handle, BASE_ADDR + 0x7c0 + id * 0xb14, out ALL_USER[id].suFinal) == false)
+                    return;
+                if (Read2Byte(process_handle, BASE_ADDR + 0x7c4 + id * 0xb14, out ALL_USER[id].yunFinal) == false)
+                    return;
+                if (Read2Byte(process_handle, BASE_ADDR + 0x7c8 + id * 0xb14, out ALL_USER[id].lingFinal) == false)
                     return;
 
                 if (Read2Byte(process_handle, BASE_ADDR + 0xB08 + id * 0xb14, out isteam) == false)
@@ -426,20 +451,6 @@ namespace PAL4_EDIT
 
                 ALL_USER[id].pos = Get_Pos(id);
 
-                ALL_USER[id].hp.max     = hp_max;
-                ALL_USER[id].hp.now     = hp_now;
-
-                ALL_USER[id].mp.max     = mp_max;
-                ALL_USER[id].mp.now     = mp_now;
-
-                ALL_USER[id].rage.max   = 100;
-                ALL_USER[id].rage.now   = rage;
-
-                ALL_USER[id].wu         = wu;
-                ALL_USER[id].fang       = fang;
-                ALL_USER[id].su         = su;
-                ALL_USER[id].yun        = yun;
-                ALL_USER[id].ling       = ling;
                 if (isteam == 1) ALL_USER[id].inTeam = true;
                 else ALL_USER[id].inTeam = false;
             }

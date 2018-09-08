@@ -1672,221 +1672,221 @@
             // Y_W_S
             // 
             this.Y_W_S.AutoSize = true;
-            this.Y_W_S.Location = new System.Drawing.Point(94, 123);
+            this.Y_W_S.Location = new System.Drawing.Point(106, 123);
             this.Y_W_S.Margin = new System.Windows.Forms.Padding(2);
             this.Y_W_S.Name = "Y_W_S";
-            this.Y_W_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_W_S.Size = new System.Drawing.Size(42, 16);
             this.Y_W_S.TabIndex = 18;
-            this.Y_W_S.Text = "锁6万";
+            this.Y_W_S.Text = "MAX";
             this.Y_W_S.UseVisualStyleBackColor = true;
             // 
             // Y_F_S
             // 
             this.Y_F_S.AutoSize = true;
-            this.Y_F_S.Location = new System.Drawing.Point(94, 143);
+            this.Y_F_S.Location = new System.Drawing.Point(106, 143);
             this.Y_F_S.Margin = new System.Windows.Forms.Padding(2);
             this.Y_F_S.Name = "Y_F_S";
-            this.Y_F_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_F_S.Size = new System.Drawing.Size(42, 16);
             this.Y_F_S.TabIndex = 19;
-            this.Y_F_S.Text = "锁6万";
+            this.Y_F_S.Text = "MAX";
             this.Y_F_S.UseVisualStyleBackColor = true;
             // 
             // Y_S2_S
             // 
             this.Y_S2_S.AutoSize = true;
-            this.Y_S2_S.Location = new System.Drawing.Point(94, 163);
+            this.Y_S2_S.Location = new System.Drawing.Point(106, 163);
             this.Y_S2_S.Margin = new System.Windows.Forms.Padding(2);
             this.Y_S2_S.Name = "Y_S2_S";
-            this.Y_S2_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_S2_S.Size = new System.Drawing.Size(42, 16);
             this.Y_S2_S.TabIndex = 20;
-            this.Y_S2_S.Text = "锁6万";
+            this.Y_S2_S.Text = "MAX";
             this.Y_S2_S.UseVisualStyleBackColor = true;
             // 
             // Y_Y_S
             // 
             this.Y_Y_S.AutoSize = true;
-            this.Y_Y_S.Location = new System.Drawing.Point(94, 183);
+            this.Y_Y_S.Location = new System.Drawing.Point(106, 183);
             this.Y_Y_S.Margin = new System.Windows.Forms.Padding(2);
             this.Y_Y_S.Name = "Y_Y_S";
-            this.Y_Y_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_Y_S.Size = new System.Drawing.Size(42, 16);
             this.Y_Y_S.TabIndex = 21;
-            this.Y_Y_S.Text = "锁6万";
+            this.Y_Y_S.Text = "MAX";
             this.Y_Y_S.UseVisualStyleBackColor = true;
             // 
             // Y_L_S
             // 
             this.Y_L_S.AutoSize = true;
-            this.Y_L_S.Location = new System.Drawing.Point(94, 203);
+            this.Y_L_S.Location = new System.Drawing.Point(106, 203);
             this.Y_L_S.Margin = new System.Windows.Forms.Padding(2);
             this.Y_L_S.Name = "Y_L_S";
-            this.Y_L_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_L_S.Size = new System.Drawing.Size(42, 16);
             this.Y_L_S.TabIndex = 22;
-            this.Y_L_S.Text = "锁6万";
+            this.Y_L_S.Text = "MAX";
             this.Y_L_S.UseVisualStyleBackColor = true;
             // 
             // H_L_S
             // 
             this.H_L_S.AutoSize = true;
-            this.H_L_S.Location = new System.Drawing.Point(94, 203);
+            this.H_L_S.Location = new System.Drawing.Point(106, 203);
             this.H_L_S.Margin = new System.Windows.Forms.Padding(2);
             this.H_L_S.Name = "H_L_S";
-            this.H_L_S.Size = new System.Drawing.Size(54, 16);
+            this.H_L_S.Size = new System.Drawing.Size(42, 16);
             this.H_L_S.TabIndex = 27;
-            this.H_L_S.Text = "锁6万";
+            this.H_L_S.Text = "MAX";
             this.H_L_S.UseVisualStyleBackColor = true;
             // 
             // H_Y_S
             // 
             this.H_Y_S.AutoSize = true;
-            this.H_Y_S.Location = new System.Drawing.Point(94, 183);
+            this.H_Y_S.Location = new System.Drawing.Point(106, 183);
             this.H_Y_S.Margin = new System.Windows.Forms.Padding(2);
             this.H_Y_S.Name = "H_Y_S";
-            this.H_Y_S.Size = new System.Drawing.Size(54, 16);
+            this.H_Y_S.Size = new System.Drawing.Size(42, 16);
             this.H_Y_S.TabIndex = 26;
-            this.H_Y_S.Text = "锁6万";
+            this.H_Y_S.Text = "MAX";
             this.H_Y_S.UseVisualStyleBackColor = true;
             // 
             // H_S2_S
             // 
             this.H_S2_S.AutoSize = true;
-            this.H_S2_S.Location = new System.Drawing.Point(94, 163);
+            this.H_S2_S.Location = new System.Drawing.Point(106, 163);
             this.H_S2_S.Margin = new System.Windows.Forms.Padding(2);
             this.H_S2_S.Name = "H_S2_S";
-            this.H_S2_S.Size = new System.Drawing.Size(54, 16);
+            this.H_S2_S.Size = new System.Drawing.Size(42, 16);
             this.H_S2_S.TabIndex = 25;
-            this.H_S2_S.Text = "锁6万";
+            this.H_S2_S.Text = "MAX";
             this.H_S2_S.UseVisualStyleBackColor = true;
             // 
             // H_F_S
             // 
             this.H_F_S.AutoSize = true;
-            this.H_F_S.Location = new System.Drawing.Point(94, 143);
+            this.H_F_S.Location = new System.Drawing.Point(106, 143);
             this.H_F_S.Margin = new System.Windows.Forms.Padding(2);
             this.H_F_S.Name = "H_F_S";
-            this.H_F_S.Size = new System.Drawing.Size(54, 16);
+            this.H_F_S.Size = new System.Drawing.Size(42, 16);
             this.H_F_S.TabIndex = 24;
-            this.H_F_S.Text = "锁6万";
+            this.H_F_S.Text = "MAX";
             this.H_F_S.UseVisualStyleBackColor = true;
             // 
             // H_W_S
             // 
             this.H_W_S.AutoSize = true;
-            this.H_W_S.Location = new System.Drawing.Point(94, 123);
+            this.H_W_S.Location = new System.Drawing.Point(106, 123);
             this.H_W_S.Margin = new System.Windows.Forms.Padding(2);
             this.H_W_S.Name = "H_W_S";
-            this.H_W_S.Size = new System.Drawing.Size(54, 16);
+            this.H_W_S.Size = new System.Drawing.Size(42, 16);
             this.H_W_S.TabIndex = 23;
-            this.H_W_S.Text = "锁6万";
+            this.H_W_S.Text = "MAX";
             this.H_W_S.UseVisualStyleBackColor = true;
             // 
             // L_L_S
             // 
             this.L_L_S.AutoSize = true;
-            this.L_L_S.Location = new System.Drawing.Point(94, 203);
+            this.L_L_S.Location = new System.Drawing.Point(106, 203);
             this.L_L_S.Margin = new System.Windows.Forms.Padding(2);
             this.L_L_S.Name = "L_L_S";
-            this.L_L_S.Size = new System.Drawing.Size(54, 16);
+            this.L_L_S.Size = new System.Drawing.Size(42, 16);
             this.L_L_S.TabIndex = 27;
-            this.L_L_S.Text = "锁6万";
+            this.L_L_S.Text = "MAX";
             this.L_L_S.UseVisualStyleBackColor = true;
             // 
             // L_Y_S
             // 
             this.L_Y_S.AutoSize = true;
-            this.L_Y_S.Location = new System.Drawing.Point(94, 183);
+            this.L_Y_S.Location = new System.Drawing.Point(106, 183);
             this.L_Y_S.Margin = new System.Windows.Forms.Padding(2);
             this.L_Y_S.Name = "L_Y_S";
-            this.L_Y_S.Size = new System.Drawing.Size(54, 16);
+            this.L_Y_S.Size = new System.Drawing.Size(42, 16);
             this.L_Y_S.TabIndex = 26;
-            this.L_Y_S.Text = "锁6万";
+            this.L_Y_S.Text = "MAX";
             this.L_Y_S.UseVisualStyleBackColor = true;
             // 
             // L_S2_S
             // 
             this.L_S2_S.AutoSize = true;
-            this.L_S2_S.Location = new System.Drawing.Point(94, 163);
+            this.L_S2_S.Location = new System.Drawing.Point(106, 163);
             this.L_S2_S.Margin = new System.Windows.Forms.Padding(2);
             this.L_S2_S.Name = "L_S2_S";
-            this.L_S2_S.Size = new System.Drawing.Size(54, 16);
+            this.L_S2_S.Size = new System.Drawing.Size(42, 16);
             this.L_S2_S.TabIndex = 25;
-            this.L_S2_S.Text = "锁6万";
+            this.L_S2_S.Text = "MAX";
             this.L_S2_S.UseVisualStyleBackColor = true;
             // 
             // L_F2_S
             // 
             this.L_F2_S.AutoSize = true;
-            this.L_F2_S.Location = new System.Drawing.Point(94, 143);
+            this.L_F2_S.Location = new System.Drawing.Point(106, 143);
             this.L_F2_S.Margin = new System.Windows.Forms.Padding(2);
             this.L_F2_S.Name = "L_F2_S";
-            this.L_F2_S.Size = new System.Drawing.Size(54, 16);
+            this.L_F2_S.Size = new System.Drawing.Size(42, 16);
             this.L_F2_S.TabIndex = 24;
-            this.L_F2_S.Text = "锁6万";
+            this.L_F2_S.Text = "MAX";
             this.L_F2_S.UseVisualStyleBackColor = true;
             // 
             // L_W_S
             // 
             this.L_W_S.AutoSize = true;
-            this.L_W_S.Location = new System.Drawing.Point(94, 123);
+            this.L_W_S.Location = new System.Drawing.Point(106, 123);
             this.L_W_S.Margin = new System.Windows.Forms.Padding(2);
             this.L_W_S.Name = "L_W_S";
-            this.L_W_S.Size = new System.Drawing.Size(54, 16);
+            this.L_W_S.Size = new System.Drawing.Size(42, 16);
             this.L_W_S.TabIndex = 23;
-            this.L_W_S.Text = "锁6万";
+            this.L_W_S.Text = "MAX";
             this.L_W_S.UseVisualStyleBackColor = true;
             // 
             // M_L_S
             // 
             this.M_L_S.AutoSize = true;
-            this.M_L_S.Location = new System.Drawing.Point(94, 203);
+            this.M_L_S.Location = new System.Drawing.Point(106, 203);
             this.M_L_S.Margin = new System.Windows.Forms.Padding(2);
             this.M_L_S.Name = "M_L_S";
-            this.M_L_S.Size = new System.Drawing.Size(54, 16);
+            this.M_L_S.Size = new System.Drawing.Size(42, 16);
             this.M_L_S.TabIndex = 27;
-            this.M_L_S.Text = "锁6万";
+            this.M_L_S.Text = "MAX";
             this.M_L_S.UseVisualStyleBackColor = true;
             // 
             // M_Y_S
             // 
             this.M_Y_S.AutoSize = true;
-            this.M_Y_S.Location = new System.Drawing.Point(94, 183);
+            this.M_Y_S.Location = new System.Drawing.Point(106, 183);
             this.M_Y_S.Margin = new System.Windows.Forms.Padding(2);
             this.M_Y_S.Name = "M_Y_S";
-            this.M_Y_S.Size = new System.Drawing.Size(54, 16);
+            this.M_Y_S.Size = new System.Drawing.Size(42, 16);
             this.M_Y_S.TabIndex = 26;
-            this.M_Y_S.Text = "锁6万";
+            this.M_Y_S.Text = "MAX";
             this.M_Y_S.UseVisualStyleBackColor = true;
             // 
             // M_S2_S
             // 
             this.M_S2_S.AutoSize = true;
-            this.M_S2_S.Location = new System.Drawing.Point(94, 163);
+            this.M_S2_S.Location = new System.Drawing.Point(106, 163);
             this.M_S2_S.Margin = new System.Windows.Forms.Padding(2);
             this.M_S2_S.Name = "M_S2_S";
-            this.M_S2_S.Size = new System.Drawing.Size(54, 16);
+            this.M_S2_S.Size = new System.Drawing.Size(42, 16);
             this.M_S2_S.TabIndex = 25;
-            this.M_S2_S.Text = "锁6万";
+            this.M_S2_S.Text = "MAX";
             this.M_S2_S.UseVisualStyleBackColor = true;
             // 
             // M_F2_S
             // 
             this.M_F2_S.AutoSize = true;
-            this.M_F2_S.Location = new System.Drawing.Point(94, 143);
+            this.M_F2_S.Location = new System.Drawing.Point(106, 143);
             this.M_F2_S.Margin = new System.Windows.Forms.Padding(2);
             this.M_F2_S.Name = "M_F2_S";
-            this.M_F2_S.Size = new System.Drawing.Size(54, 16);
+            this.M_F2_S.Size = new System.Drawing.Size(42, 16);
             this.M_F2_S.TabIndex = 24;
-            this.M_F2_S.Text = "锁6万";
+            this.M_F2_S.Text = "MAX";
             this.M_F2_S.UseVisualStyleBackColor = true;
             // 
             // M_W_S
             // 
             this.M_W_S.AutoSize = true;
-            this.M_W_S.Location = new System.Drawing.Point(94, 123);
+            this.M_W_S.Location = new System.Drawing.Point(106, 123);
             this.M_W_S.Margin = new System.Windows.Forms.Padding(2);
             this.M_W_S.Name = "M_W_S";
-            this.M_W_S.Size = new System.Drawing.Size(54, 16);
+            this.M_W_S.Size = new System.Drawing.Size(42, 16);
             this.M_W_S.TabIndex = 23;
-            this.M_W_S.Text = "锁6万";
+            this.M_W_S.Text = "MAX";
             this.M_W_S.UseVisualStyleBackColor = true;
             // 
             // button3

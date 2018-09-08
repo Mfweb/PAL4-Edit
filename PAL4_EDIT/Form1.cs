@@ -48,6 +48,7 @@ namespace PAL4_EDIT
             public UInt16 yunFinal;   //运
             public UInt16 lingFinal;  //灵
             public Int16 pos;   //在队伍中的位置
+            public UInt16 level;
             public bool inTeam;
         }
         //战斗时的用户数据
@@ -211,7 +212,7 @@ namespace PAL4_EDIT
             {
                 for (int id = 0; id < 4; id++)
                 {
-                    string displayPos = ALL_USER[id].pos.ToString();
+                    string displayPos = ALL_USER[id].level.ToString() + " - " + ALL_USER[id].pos.ToString();
                     string displayHPText = ALL_USER[id].hp.now.ToString() + "/" + ALL_USER[id].hp.max.ToString();
                     string displayMPText = ALL_USER[id].mp.now.ToString() + "/" + ALL_USER[id].mp.max.ToString();
                     string displayWuText = "武：" + ALL_USER[id].wu.ToString() + "(" + ALL_USER[id].wuFinal.ToString() + ")";
@@ -222,7 +223,7 @@ namespace PAL4_EDIT
                     switch (id)
                     {
                         case YunTianHe://云天河
-                            Y_G_T.Text = "云天河-" + displayPos;
+                            Y_G_T.Text = "云天河 - " + displayPos;
 
                             Y_J.Maximum = ALL_USER[id].hp.max;
                             Y_J.Value = ALL_USER[id].hp.now;
@@ -245,7 +246,7 @@ namespace PAL4_EDIT
                             Y_I_T.Checked = ALL_USER[id].inTeam;
                             break;
                         case HanLingSha://韩菱纱
-                            H_G_T.Text = "韩菱纱-" + displayPos;
+                            H_G_T.Text = "韩菱纱 - " + displayPos;
 
                             H_J.Maximum = ALL_USER[id].hp.max;
                             H_J.Value = ALL_USER[id].hp.now;
@@ -268,7 +269,7 @@ namespace PAL4_EDIT
                             H_I_T.Checked = ALL_USER[id].inTeam;
                             break;
                         case LiuMengLi://柳梦璃
-                            L_G_T.Text = "柳梦璃-" + displayPos;
+                            L_G_T.Text = "柳梦璃 - " + displayPos;
 
                             L_J.Maximum = ALL_USER[id].hp.max;
                             L_J.Value = ALL_USER[id].hp.now;
@@ -291,7 +292,7 @@ namespace PAL4_EDIT
                             L_I_T.Checked = ALL_USER[id].inTeam;
                             break;
                         case MuRongZiYing://慕容紫英
-                            M_G_T.Text = "慕容紫英-" + displayPos;
+                            M_G_T.Text = "慕容紫英 - " + displayPos;
 
                             M_J.Maximum = ALL_USER[id].hp.max;
                             M_J.Value = ALL_USER[id].hp.now;
@@ -399,17 +400,11 @@ namespace PAL4_EDIT
             BASE_ADDR = out_data;
             for (int id=0;id<4;id++)
             {
-                UInt16 hp_now = 0;
-                UInt16 hp_max = 0;
-                UInt16 mp_now = 0;
-                UInt16 mp_max = 0;
-                UInt16 rage = 0;
-                UInt16 wu = 0;
-                UInt16 fang = 0;
-                UInt16 su = 0;
-                UInt16 yun = 0;
-                UInt16 ling = 0;
                 UInt16 isteam = 0;
+
+                if (Read2Byte(process_handle, BASE_ADDR + 0x884 + id * 0xb14, out ALL_USER[id].level) == false)
+                    return;
+
                 if (Read2Byte(process_handle, BASE_ADDR + 0x890 + id * 0xb14, out ALL_USER[id].hp.now) == false)
                     return; 
                 if (Read2Byte(process_handle, BASE_ADDR + 0x7ac + id * 0xb14, out ALL_USER[id].hp.max) == false)
@@ -449,6 +444,7 @@ namespace PAL4_EDIT
                 if (Read2Byte(process_handle, BASE_ADDR + 0xB08 + id * 0xb14, out isteam) == false)
                     return;
 
+                ALL_USER[id].rage.max = 100;
                 ALL_USER[id].pos = Get_Pos(id);
 
                 if (isteam == 1) ALL_USER[id].inTeam = true;

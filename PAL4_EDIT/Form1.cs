@@ -37,11 +37,11 @@ namespace PAL4_EDIT
             public data_mn hp;  //精
             public data_mn mp;  //神
             public data_mn rage;//气
-            public Int32 wu;    //武
-            public Int32 fang;  //防
-            public Int32 su;    //速
-            public Int32 yun;   //运
-            public Int32 ling;  //灵
+            public UInt16 wu;    //武
+            public UInt16 fang;  //防
+            public UInt16 su;    //速
+            public UInt16 yun;   //运
+            public UInt16 ling;  //灵
             public Int16 pos;   //在队伍中的位置
             public bool inTeam;
         }
@@ -68,7 +68,7 @@ namespace PAL4_EDIT
             FIGHT_USER = new FIGHT_USER_DATA[3];
         }
         //读2字节内存
-        private bool Read2Byte(IntPtr hwnd, int hAddr, out Int16 outData)
+        private bool Read2Byte(IntPtr hwnd, int hAddr, out UInt16 outData)
         {
             byte[] out_byte = new byte[2];
             int ip = new int();
@@ -81,7 +81,7 @@ namespace PAL4_EDIT
             UInt16 temp = 0;
             temp |= out_byte[0];
             temp |= (UInt16)(out_byte[1] << 8);
-            outData = (Int16)temp;
+            outData = (UInt16)temp;
             return true;
         }
         //读4字节内存
@@ -105,7 +105,7 @@ namespace PAL4_EDIT
             return true;
         }
         //写2字节内存
-        private bool Write2Byte(IntPtr hwnd, int hAddr, Int16 inData)
+        private bool Write2Byte(IntPtr hwnd, int hAddr, UInt16 inData)
         {
             byte[] temp_byte = new byte[2];
             temp_byte[0] = (byte)inData;
@@ -195,10 +195,10 @@ namespace PAL4_EDIT
             Int32 out_data = 0;
             if (Read4Byte(process_handle, 0x8E1428 + OffsetValue, out out_data) == false)
                 return -1;
-            Int16 pos;
+            UInt16 pos;
             if (Read2Byte(process_handle, out_data + 0x7A0 + id * 0xb14, out pos) == false)
                 return -1;
-            return pos;
+            return (Int16)pos;
         }
         private void Show_Data()
         {
@@ -386,17 +386,17 @@ namespace PAL4_EDIT
             BASE_ADDR = out_data;
             for (int id=0;id<4;id++)
             {
-                Int16 hp_now = 0;
-                Int16 hp_max = 0;
-                Int16 mp_now = 0;
-                Int16 mp_max = 0;
-                Int16 rage = 0;
-                Int16 wu = 0;
-                Int16 fang = 0;
-                Int16 su = 0;
-                Int16 yun = 0;
-                Int16 ling = 0;
-                Int16 isteam = 0;
+                UInt16 hp_now = 0;
+                UInt16 hp_max = 0;
+                UInt16 mp_now = 0;
+                UInt16 mp_max = 0;
+                UInt16 rage = 0;
+                UInt16 wu = 0;
+                UInt16 fang = 0;
+                UInt16 su = 0;
+                UInt16 yun = 0;
+                UInt16 ling = 0;
+                UInt16 isteam = 0;
                 if (Read2Byte(process_handle, BASE_ADDR + 0x890 + id * 0xb14, out hp_now) == false)
                     return; 
                 if (Read2Byte(process_handle, BASE_ADDR + 0x7ac + id * 0xb14, out hp_max) == false)
@@ -453,32 +453,78 @@ namespace PAL4_EDIT
                 return;
 
             if (Y_J_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x890 + YunTianHe * 0xb14, (Int16)ALL_USER[YunTianHe].hp.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x890 + YunTianHe * 0xb14, (UInt16)ALL_USER[YunTianHe].hp.max);
             if (Y_Q_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x894 + YunTianHe * 0xb14, (Int16)ALL_USER[YunTianHe].rage.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x894 + YunTianHe * 0xb14, (UInt16)ALL_USER[YunTianHe].rage.max);
             if (Y_S_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x898 + YunTianHe * 0xb14, (Int16)ALL_USER[YunTianHe].mp.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x898 + YunTianHe * 0xb14, (UInt16)ALL_USER[YunTianHe].mp.max);
 
             if (H_J_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x890 + HanLingSha * 0xb14, (Int16)ALL_USER[HanLingSha].hp.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x890 + HanLingSha * 0xb14, (UInt16)ALL_USER[HanLingSha].hp.max);
             if (H_Q_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x894 + HanLingSha * 0xb14, (Int16)ALL_USER[HanLingSha].rage.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x894 + HanLingSha * 0xb14, (UInt16)ALL_USER[HanLingSha].rage.max);
             if (H_S_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x898 + HanLingSha * 0xb14, (Int16)ALL_USER[HanLingSha].mp.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x898 + HanLingSha * 0xb14, (UInt16)ALL_USER[HanLingSha].mp.max);
 
             if (L_J_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x890 + LiuMengLi * 0xb14, (Int16)ALL_USER[LiuMengLi].hp.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x890 + LiuMengLi * 0xb14, (UInt16)ALL_USER[LiuMengLi].hp.max);
             if (L_Q_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x894 + LiuMengLi * 0xb14, (Int16)ALL_USER[LiuMengLi].rage.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x894 + LiuMengLi * 0xb14, (UInt16)ALL_USER[LiuMengLi].rage.max);
             if (L_S_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x898 + LiuMengLi * 0xb14, (Int16)ALL_USER[LiuMengLi].mp.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x898 + LiuMengLi * 0xb14, (UInt16)ALL_USER[LiuMengLi].mp.max);
 
             if (M_J_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x890 + MuRongZiYing * 0xb14, (Int16)ALL_USER[MuRongZiYing].hp.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x890 + MuRongZiYing * 0xb14, (UInt16)ALL_USER[MuRongZiYing].hp.max);
             if (M_Q_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x894 + MuRongZiYing * 0xb14, (Int16)ALL_USER[MuRongZiYing].rage.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x894 + MuRongZiYing * 0xb14, (UInt16)ALL_USER[MuRongZiYing].rage.max);
             if (M_S_S.Checked)
-                Write2Byte(process_handle, BASE_ADDR + 0x898 + MuRongZiYing * 0xb14, (Int16)ALL_USER[MuRongZiYing].mp.max);
+                Write2Byte(process_handle, BASE_ADDR + 0x898 + MuRongZiYing * 0xb14, (UInt16)ALL_USER[MuRongZiYing].mp.max);
+
+            if (Y_W_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x668 + YunTianHe * 0xb14, 60000);
+            if (Y_F_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x66c + YunTianHe * 0xb14, 60000);
+            if (Y_S2_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x670 + YunTianHe * 0xb14, 60000);
+            if (Y_Y_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x674 + YunTianHe * 0xb14, 60000);
+            if (Y_L_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x678 + YunTianHe * 0xb14, 60000);
+
+            if (H_W_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x668 + HanLingSha * 0xb14, 60000);
+            if (H_F_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x66c + HanLingSha * 0xb14, 60000);
+            if (H_S2_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x670 + HanLingSha * 0xb14, 60000);
+            if (H_Y_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x674 + HanLingSha * 0xb14, 60000);
+            if (H_L_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x678 + HanLingSha * 0xb14, 60000);
+
+
+            if (L_W_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x668 + LiuMengLi * 0xb14, 60000);
+            if (L_F2_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x66c + LiuMengLi * 0xb14, 60000);
+            if (L_S2_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x670 + LiuMengLi * 0xb14, 60000);
+            if (L_Y_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x674 + LiuMengLi * 0xb14, 60000);
+            if (L_L_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x678 + LiuMengLi * 0xb14, 60000);
+
+            if (M_W_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x668 + MuRongZiYing * 0xb14, 60000);
+            if (M_F2_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x66c + MuRongZiYing * 0xb14, 60000);
+            if (M_S2_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x670 + MuRongZiYing * 0xb14, 60000);
+            if (M_Y_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x674 + MuRongZiYing * 0xb14, 60000);
+            if (M_L_S.Checked)
+                Write2Byte(process_handle, BASE_ADDR + 0x678 + MuRongZiYing * 0xb14, 60000);
+
 
             if (is_fight)//战斗时的数据锁定
             {
@@ -515,19 +561,19 @@ namespace PAL4_EDIT
                 {
                     if (L_F_J_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x23C, (Int16)FIGHT_USER[0].hp.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x23C, (UInt16)FIGHT_USER[0].hp.max) == false)
                             return;
                     }
 
                     if (L_F_Q_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x240, (Int16)FIGHT_USER[0].rage.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x240, (UInt16)FIGHT_USER[0].rage.max) == false)
                             return;
                     }
 
                     if (L_F_S_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x244, (Int16)FIGHT_USER[0].mp.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[0] + 0x244, (UInt16)FIGHT_USER[0].mp.max) == false)
                             return;
                     }
                 }
@@ -536,19 +582,19 @@ namespace PAL4_EDIT
                 {
                     if (M_F_J_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x23C, (Int16)FIGHT_USER[1].hp.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x23C, (UInt16)FIGHT_USER[1].hp.max) == false)
                             return;
                     }
 
                     if (M_F_Q_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x240, (Int16)FIGHT_USER[1].rage.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x240, (UInt16)FIGHT_USER[1].rage.max) == false)
                             return;
                     }
 
                     if (M_F_S_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x244, (Int16)FIGHT_USER[1].mp.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[1] + 0x244, (UInt16)FIGHT_USER[1].mp.max) == false)
                             return;
                     }
                 }
@@ -557,19 +603,19 @@ namespace PAL4_EDIT
                 {
                     if (R_F_J_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x23C, (Int16)FIGHT_USER[2].hp.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x23C, (UInt16)FIGHT_USER[2].hp.max) == false)
                             return;
                     }
 
                     if (R_F_Q_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x240, (Int16)FIGHT_USER[2].rage.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x240, (UInt16)FIGHT_USER[2].rage.max) == false)
                             return;
                     }
 
                     if (R_F_S_S.Checked == true)
                     {
-                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x244, (Int16)FIGHT_USER[2].mp.max) == false)
+                        if (Write2Byte(process_handle, BASE_ADDR_FIGHT[2] + 0x244, (UInt16)FIGHT_USER[2].mp.max) == false)
                             return;
                     }
                 }
@@ -609,11 +655,11 @@ namespace PAL4_EDIT
             Read4Byte(process_handle, BASE_ADDR[0] + FightOffsetValue, out f_data[0]);
             Read4Byte(process_handle, BASE_ADDR[1] + FightOffsetValue, out f_data[1]);
             Read4Byte(process_handle, BASE_ADDR[2] + FightOffsetValue, out f_data[2]);
-            Int16[] hp_now = new Int16[3];//从作往右0 1 2
-            Int16[] hp_max = new Int16[3];
-            Int16[] mp_now = new Int16[3];
-            Int16[] mp_max = new Int16[3];
-            Int16[] rage = new Int16[3];
+            UInt16[] hp_now = new UInt16[3];//从作往右0 1 2
+            UInt16[] hp_max = new UInt16[3];
+            UInt16[] mp_now = new UInt16[3];
+            UInt16[] mp_max = new UInt16[3];
+            UInt16[] rage = new UInt16[3];
             
             for (int i = 0; i < 3; i++)//获取场上人物的数据
             {
@@ -771,7 +817,7 @@ namespace PAL4_EDIT
 
         private void Y_I_T_CheckedChanged(object sender, EventArgs e)
         {
-            Int16 indt = 0;
+            UInt16 indt = 0;
             if (Y_I_T.Checked == false)
                 indt = 0;
             else
@@ -785,7 +831,7 @@ namespace PAL4_EDIT
 
         private void H_I_T_CheckedChanged(object sender, EventArgs e)
         {
-            Int16 indt = 0;
+            UInt16 indt = 0;
             if (H_I_T.Checked == false)
                 indt = 0;
             else
@@ -799,7 +845,7 @@ namespace PAL4_EDIT
 
         private void L_I_T_CheckedChanged(object sender, EventArgs e)
         {
-            Int16 indt = 0;
+            UInt16 indt = 0;
             if (L_I_T.Checked == false)
                 indt = 0;
             else
@@ -813,7 +859,7 @@ namespace PAL4_EDIT
 
         private void M_I_T_CheckedChanged(object sender, EventArgs e)
         {
-            Int16 indt = 0;
+            UInt16 indt = 0;
             if (M_I_T.Checked == false)
                 indt = 0;
             else
@@ -887,6 +933,54 @@ namespace PAL4_EDIT
                 R_F_Q_S.Checked = false;
                 R_F_S_S.Checked = false;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            Y_J_S.Checked = true;
+            Y_Q_S.Checked = true;
+            Y_S_S.Checked = true;
+
+            Y_W_S.Checked = true;
+            Y_F_S.Checked = true;
+            Y_S2_S.Checked = true;
+            Y_Y_S.Checked = true;
+            Y_L_S.Checked = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            H_J_S.Checked = true;
+            H_Q_S.Checked = true;
+            H_S_S.Checked = true;
+
+            H_W_S.Checked = true;
+            H_F_S.Checked = true;
+            H_S2_S.Checked = true;
+            H_Y_S.Checked = true;
+            H_L_S.Checked = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e) {
+            L_J_S.Checked = true;
+            L_Q_S.Checked = true;
+            L_S_S.Checked = true;
+
+            L_W_S.Checked = true;
+            L_F2_S.Checked = true;
+            L_S2_S.Checked = true;
+            L_Y_S.Checked = true;
+            L_L_S.Checked = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e) {
+            M_J_S.Checked = true;
+            M_Q_S.Checked = true;
+            M_S_S.Checked = true;
+
+            M_W_S.Checked = true;
+            M_F2_S.Checked = true;
+            M_S2_S.Checked = true;
+            M_Y_S.Checked = true;
+            M_L_S.Checked = true;
         }
     }
 }

@@ -129,6 +129,7 @@
             this.L_F_J_S = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.sys = new System.Windows.Forms.TabPage();
+            this.fight_auto_lock = new System.Windows.Forms.CheckBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
@@ -160,7 +161,30 @@
             this.M_F_S_S = new System.Windows.Forms.CheckBox();
             this.M_F_Q_S = new System.Windows.Forms.CheckBox();
             this.M_F_J_S = new System.Windows.Forms.CheckBox();
-            this.fight_auto_lock = new System.Windows.Forms.CheckBox();
+            this.Y_W_S = new System.Windows.Forms.CheckBox();
+            this.Y_F_S = new System.Windows.Forms.CheckBox();
+            this.Y_S2_S = new System.Windows.Forms.CheckBox();
+            this.Y_Y_S = new System.Windows.Forms.CheckBox();
+            this.Y_L_S = new System.Windows.Forms.CheckBox();
+            this.H_L_S = new System.Windows.Forms.CheckBox();
+            this.H_Y_S = new System.Windows.Forms.CheckBox();
+            this.H_S2_S = new System.Windows.Forms.CheckBox();
+            this.H_F_S = new System.Windows.Forms.CheckBox();
+            this.H_W_S = new System.Windows.Forms.CheckBox();
+            this.L_L_S = new System.Windows.Forms.CheckBox();
+            this.L_Y_S = new System.Windows.Forms.CheckBox();
+            this.L_S2_S = new System.Windows.Forms.CheckBox();
+            this.L_F2_S = new System.Windows.Forms.CheckBox();
+            this.L_W_S = new System.Windows.Forms.CheckBox();
+            this.M_L_S = new System.Windows.Forms.CheckBox();
+            this.M_Y_S = new System.Windows.Forms.CheckBox();
+            this.M_S2_S = new System.Windows.Forms.CheckBox();
+            this.M_F2_S = new System.Windows.Forms.CheckBox();
+            this.M_W_S = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.Y_G_T.SuspendLayout();
             this.H_G_T.SuspendLayout();
             this.L_G_T.SuspendLayout();
@@ -186,6 +210,12 @@
             // 
             // Y_G_T
             // 
+            this.Y_G_T.Controls.Add(this.button3);
+            this.Y_G_T.Controls.Add(this.Y_L_S);
+            this.Y_G_T.Controls.Add(this.Y_Y_S);
+            this.Y_G_T.Controls.Add(this.Y_S2_S);
+            this.Y_G_T.Controls.Add(this.Y_F_S);
+            this.Y_G_T.Controls.Add(this.Y_W_S);
             this.Y_G_T.Controls.Add(this.Y_I_T);
             this.Y_G_T.Controls.Add(this.D_Y_L);
             this.Y_G_T.Controls.Add(this.D_Y_Y);
@@ -216,7 +246,7 @@
             // Y_I_T
             // 
             this.Y_I_T.AutoSize = true;
-            this.Y_I_T.Location = new System.Drawing.Point(94, 235);
+            this.Y_I_T.Location = new System.Drawing.Point(12, 232);
             this.Y_I_T.Margin = new System.Windows.Forms.Padding(2);
             this.Y_I_T.Name = "Y_I_T";
             this.Y_I_T.Size = new System.Drawing.Size(60, 16);
@@ -473,6 +503,12 @@
             // 
             // H_G_T
             // 
+            this.H_G_T.Controls.Add(this.button4);
+            this.H_G_T.Controls.Add(this.H_L_S);
+            this.H_G_T.Controls.Add(this.H_Y_S);
+            this.H_G_T.Controls.Add(this.H_S2_S);
+            this.H_G_T.Controls.Add(this.H_F_S);
+            this.H_G_T.Controls.Add(this.H_W_S);
             this.H_G_T.Controls.Add(this.H_I_T);
             this.H_G_T.Controls.Add(this.D_H_L);
             this.H_G_T.Controls.Add(this.D_H_Y);
@@ -503,7 +539,7 @@
             // H_I_T
             // 
             this.H_I_T.AutoSize = true;
-            this.H_I_T.Location = new System.Drawing.Point(92, 235);
+            this.H_I_T.Location = new System.Drawing.Point(12, 232);
             this.H_I_T.Margin = new System.Windows.Forms.Padding(2);
             this.H_I_T.Name = "H_I_T";
             this.H_I_T.Size = new System.Drawing.Size(60, 16);
@@ -681,6 +717,12 @@
             // 
             // L_G_T
             // 
+            this.L_G_T.Controls.Add(this.button5);
+            this.L_G_T.Controls.Add(this.L_L_S);
+            this.L_G_T.Controls.Add(this.L_Y_S);
+            this.L_G_T.Controls.Add(this.L_S2_S);
+            this.L_G_T.Controls.Add(this.L_F2_S);
+            this.L_G_T.Controls.Add(this.L_W_S);
             this.L_G_T.Controls.Add(this.L_I_T);
             this.L_G_T.Controls.Add(this.D_L_L);
             this.L_G_T.Controls.Add(this.D_L_Y);
@@ -711,7 +753,7 @@
             // L_I_T
             // 
             this.L_I_T.AutoSize = true;
-            this.L_I_T.Location = new System.Drawing.Point(92, 235);
+            this.L_I_T.Location = new System.Drawing.Point(12, 232);
             this.L_I_T.Margin = new System.Windows.Forms.Padding(2);
             this.L_I_T.Name = "L_I_T";
             this.L_I_T.Size = new System.Drawing.Size(60, 16);
@@ -889,6 +931,12 @@
             // 
             // M_G_T
             // 
+            this.M_G_T.Controls.Add(this.button6);
+            this.M_G_T.Controls.Add(this.M_L_S);
+            this.M_G_T.Controls.Add(this.M_Y_S);
+            this.M_G_T.Controls.Add(this.M_S2_S);
+            this.M_G_T.Controls.Add(this.M_F2_S);
+            this.M_G_T.Controls.Add(this.M_W_S);
             this.M_G_T.Controls.Add(this.M_I_T);
             this.M_G_T.Controls.Add(this.D_M_L);
             this.M_G_T.Controls.Add(this.D_M_Y);
@@ -919,7 +967,7 @@
             // M_I_T
             // 
             this.M_I_T.AutoSize = true;
-            this.M_I_T.Location = new System.Drawing.Point(92, 235);
+            this.M_I_T.Location = new System.Drawing.Point(12, 232);
             this.M_I_T.Margin = new System.Windows.Forms.Padding(2);
             this.M_I_T.Name = "M_I_T";
             this.M_I_T.Size = new System.Drawing.Size(60, 16);
@@ -1270,6 +1318,18 @@
             this.sys.Text = "系统";
             this.sys.UseVisualStyleBackColor = true;
             // 
+            // fight_auto_lock
+            // 
+            this.fight_auto_lock.AutoSize = true;
+            this.fight_auto_lock.Location = new System.Drawing.Point(17, 76);
+            this.fight_auto_lock.Margin = new System.Windows.Forms.Padding(2);
+            this.fight_auto_lock.Name = "fight_auto_lock";
+            this.fight_auto_lock.Size = new System.Drawing.Size(180, 16);
+            this.fight_auto_lock.TabIndex = 13;
+            this.fight_auto_lock.Text = "开始战斗时自动锁定所有状态";
+            this.fight_auto_lock.UseVisualStyleBackColor = true;
+            this.fight_auto_lock.CheckedChanged += new System.EventHandler(this.fight_auto_lock_CheckedChanged);
+            // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
@@ -1609,17 +1669,265 @@
             this.M_F_J_S.Text = "锁定";
             this.M_F_J_S.UseVisualStyleBackColor = true;
             // 
-            // fight_auto_lock
+            // Y_W_S
             // 
-            this.fight_auto_lock.AutoSize = true;
-            this.fight_auto_lock.Location = new System.Drawing.Point(17, 76);
-            this.fight_auto_lock.Margin = new System.Windows.Forms.Padding(2);
-            this.fight_auto_lock.Name = "fight_auto_lock";
-            this.fight_auto_lock.Size = new System.Drawing.Size(180, 16);
-            this.fight_auto_lock.TabIndex = 13;
-            this.fight_auto_lock.Text = "开始战斗时自动锁定所有状态";
-            this.fight_auto_lock.UseVisualStyleBackColor = true;
-            this.fight_auto_lock.CheckedChanged += new System.EventHandler(this.fight_auto_lock_CheckedChanged);
+            this.Y_W_S.AutoSize = true;
+            this.Y_W_S.Location = new System.Drawing.Point(94, 123);
+            this.Y_W_S.Margin = new System.Windows.Forms.Padding(2);
+            this.Y_W_S.Name = "Y_W_S";
+            this.Y_W_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_W_S.TabIndex = 18;
+            this.Y_W_S.Text = "锁6万";
+            this.Y_W_S.UseVisualStyleBackColor = true;
+            // 
+            // Y_F_S
+            // 
+            this.Y_F_S.AutoSize = true;
+            this.Y_F_S.Location = new System.Drawing.Point(94, 143);
+            this.Y_F_S.Margin = new System.Windows.Forms.Padding(2);
+            this.Y_F_S.Name = "Y_F_S";
+            this.Y_F_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_F_S.TabIndex = 19;
+            this.Y_F_S.Text = "锁6万";
+            this.Y_F_S.UseVisualStyleBackColor = true;
+            // 
+            // Y_S2_S
+            // 
+            this.Y_S2_S.AutoSize = true;
+            this.Y_S2_S.Location = new System.Drawing.Point(94, 163);
+            this.Y_S2_S.Margin = new System.Windows.Forms.Padding(2);
+            this.Y_S2_S.Name = "Y_S2_S";
+            this.Y_S2_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_S2_S.TabIndex = 20;
+            this.Y_S2_S.Text = "锁6万";
+            this.Y_S2_S.UseVisualStyleBackColor = true;
+            // 
+            // Y_Y_S
+            // 
+            this.Y_Y_S.AutoSize = true;
+            this.Y_Y_S.Location = new System.Drawing.Point(94, 183);
+            this.Y_Y_S.Margin = new System.Windows.Forms.Padding(2);
+            this.Y_Y_S.Name = "Y_Y_S";
+            this.Y_Y_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_Y_S.TabIndex = 21;
+            this.Y_Y_S.Text = "锁6万";
+            this.Y_Y_S.UseVisualStyleBackColor = true;
+            // 
+            // Y_L_S
+            // 
+            this.Y_L_S.AutoSize = true;
+            this.Y_L_S.Location = new System.Drawing.Point(94, 203);
+            this.Y_L_S.Margin = new System.Windows.Forms.Padding(2);
+            this.Y_L_S.Name = "Y_L_S";
+            this.Y_L_S.Size = new System.Drawing.Size(54, 16);
+            this.Y_L_S.TabIndex = 22;
+            this.Y_L_S.Text = "锁6万";
+            this.Y_L_S.UseVisualStyleBackColor = true;
+            // 
+            // H_L_S
+            // 
+            this.H_L_S.AutoSize = true;
+            this.H_L_S.Location = new System.Drawing.Point(94, 203);
+            this.H_L_S.Margin = new System.Windows.Forms.Padding(2);
+            this.H_L_S.Name = "H_L_S";
+            this.H_L_S.Size = new System.Drawing.Size(54, 16);
+            this.H_L_S.TabIndex = 27;
+            this.H_L_S.Text = "锁6万";
+            this.H_L_S.UseVisualStyleBackColor = true;
+            // 
+            // H_Y_S
+            // 
+            this.H_Y_S.AutoSize = true;
+            this.H_Y_S.Location = new System.Drawing.Point(94, 183);
+            this.H_Y_S.Margin = new System.Windows.Forms.Padding(2);
+            this.H_Y_S.Name = "H_Y_S";
+            this.H_Y_S.Size = new System.Drawing.Size(54, 16);
+            this.H_Y_S.TabIndex = 26;
+            this.H_Y_S.Text = "锁6万";
+            this.H_Y_S.UseVisualStyleBackColor = true;
+            // 
+            // H_S2_S
+            // 
+            this.H_S2_S.AutoSize = true;
+            this.H_S2_S.Location = new System.Drawing.Point(94, 163);
+            this.H_S2_S.Margin = new System.Windows.Forms.Padding(2);
+            this.H_S2_S.Name = "H_S2_S";
+            this.H_S2_S.Size = new System.Drawing.Size(54, 16);
+            this.H_S2_S.TabIndex = 25;
+            this.H_S2_S.Text = "锁6万";
+            this.H_S2_S.UseVisualStyleBackColor = true;
+            // 
+            // H_F_S
+            // 
+            this.H_F_S.AutoSize = true;
+            this.H_F_S.Location = new System.Drawing.Point(94, 143);
+            this.H_F_S.Margin = new System.Windows.Forms.Padding(2);
+            this.H_F_S.Name = "H_F_S";
+            this.H_F_S.Size = new System.Drawing.Size(54, 16);
+            this.H_F_S.TabIndex = 24;
+            this.H_F_S.Text = "锁6万";
+            this.H_F_S.UseVisualStyleBackColor = true;
+            // 
+            // H_W_S
+            // 
+            this.H_W_S.AutoSize = true;
+            this.H_W_S.Location = new System.Drawing.Point(94, 123);
+            this.H_W_S.Margin = new System.Windows.Forms.Padding(2);
+            this.H_W_S.Name = "H_W_S";
+            this.H_W_S.Size = new System.Drawing.Size(54, 16);
+            this.H_W_S.TabIndex = 23;
+            this.H_W_S.Text = "锁6万";
+            this.H_W_S.UseVisualStyleBackColor = true;
+            // 
+            // L_L_S
+            // 
+            this.L_L_S.AutoSize = true;
+            this.L_L_S.Location = new System.Drawing.Point(94, 203);
+            this.L_L_S.Margin = new System.Windows.Forms.Padding(2);
+            this.L_L_S.Name = "L_L_S";
+            this.L_L_S.Size = new System.Drawing.Size(54, 16);
+            this.L_L_S.TabIndex = 27;
+            this.L_L_S.Text = "锁6万";
+            this.L_L_S.UseVisualStyleBackColor = true;
+            // 
+            // L_Y_S
+            // 
+            this.L_Y_S.AutoSize = true;
+            this.L_Y_S.Location = new System.Drawing.Point(94, 183);
+            this.L_Y_S.Margin = new System.Windows.Forms.Padding(2);
+            this.L_Y_S.Name = "L_Y_S";
+            this.L_Y_S.Size = new System.Drawing.Size(54, 16);
+            this.L_Y_S.TabIndex = 26;
+            this.L_Y_S.Text = "锁6万";
+            this.L_Y_S.UseVisualStyleBackColor = true;
+            // 
+            // L_S2_S
+            // 
+            this.L_S2_S.AutoSize = true;
+            this.L_S2_S.Location = new System.Drawing.Point(94, 163);
+            this.L_S2_S.Margin = new System.Windows.Forms.Padding(2);
+            this.L_S2_S.Name = "L_S2_S";
+            this.L_S2_S.Size = new System.Drawing.Size(54, 16);
+            this.L_S2_S.TabIndex = 25;
+            this.L_S2_S.Text = "锁6万";
+            this.L_S2_S.UseVisualStyleBackColor = true;
+            // 
+            // L_F2_S
+            // 
+            this.L_F2_S.AutoSize = true;
+            this.L_F2_S.Location = new System.Drawing.Point(94, 143);
+            this.L_F2_S.Margin = new System.Windows.Forms.Padding(2);
+            this.L_F2_S.Name = "L_F2_S";
+            this.L_F2_S.Size = new System.Drawing.Size(54, 16);
+            this.L_F2_S.TabIndex = 24;
+            this.L_F2_S.Text = "锁6万";
+            this.L_F2_S.UseVisualStyleBackColor = true;
+            // 
+            // L_W_S
+            // 
+            this.L_W_S.AutoSize = true;
+            this.L_W_S.Location = new System.Drawing.Point(94, 123);
+            this.L_W_S.Margin = new System.Windows.Forms.Padding(2);
+            this.L_W_S.Name = "L_W_S";
+            this.L_W_S.Size = new System.Drawing.Size(54, 16);
+            this.L_W_S.TabIndex = 23;
+            this.L_W_S.Text = "锁6万";
+            this.L_W_S.UseVisualStyleBackColor = true;
+            // 
+            // M_L_S
+            // 
+            this.M_L_S.AutoSize = true;
+            this.M_L_S.Location = new System.Drawing.Point(94, 203);
+            this.M_L_S.Margin = new System.Windows.Forms.Padding(2);
+            this.M_L_S.Name = "M_L_S";
+            this.M_L_S.Size = new System.Drawing.Size(54, 16);
+            this.M_L_S.TabIndex = 27;
+            this.M_L_S.Text = "锁6万";
+            this.M_L_S.UseVisualStyleBackColor = true;
+            // 
+            // M_Y_S
+            // 
+            this.M_Y_S.AutoSize = true;
+            this.M_Y_S.Location = new System.Drawing.Point(94, 183);
+            this.M_Y_S.Margin = new System.Windows.Forms.Padding(2);
+            this.M_Y_S.Name = "M_Y_S";
+            this.M_Y_S.Size = new System.Drawing.Size(54, 16);
+            this.M_Y_S.TabIndex = 26;
+            this.M_Y_S.Text = "锁6万";
+            this.M_Y_S.UseVisualStyleBackColor = true;
+            // 
+            // M_S2_S
+            // 
+            this.M_S2_S.AutoSize = true;
+            this.M_S2_S.Location = new System.Drawing.Point(94, 163);
+            this.M_S2_S.Margin = new System.Windows.Forms.Padding(2);
+            this.M_S2_S.Name = "M_S2_S";
+            this.M_S2_S.Size = new System.Drawing.Size(54, 16);
+            this.M_S2_S.TabIndex = 25;
+            this.M_S2_S.Text = "锁6万";
+            this.M_S2_S.UseVisualStyleBackColor = true;
+            // 
+            // M_F2_S
+            // 
+            this.M_F2_S.AutoSize = true;
+            this.M_F2_S.Location = new System.Drawing.Point(94, 143);
+            this.M_F2_S.Margin = new System.Windows.Forms.Padding(2);
+            this.M_F2_S.Name = "M_F2_S";
+            this.M_F2_S.Size = new System.Drawing.Size(54, 16);
+            this.M_F2_S.TabIndex = 24;
+            this.M_F2_S.Text = "锁6万";
+            this.M_F2_S.UseVisualStyleBackColor = true;
+            // 
+            // M_W_S
+            // 
+            this.M_W_S.AutoSize = true;
+            this.M_W_S.Location = new System.Drawing.Point(94, 123);
+            this.M_W_S.Margin = new System.Windows.Forms.Padding(2);
+            this.M_W_S.Name = "M_W_S";
+            this.M_W_S.Size = new System.Drawing.Size(54, 16);
+            this.M_W_S.TabIndex = 23;
+            this.M_W_S.Text = "锁6万";
+            this.M_W_S.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(84, 224);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(63, 23);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "全锁";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(84, 224);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(63, 23);
+            this.button4.TabIndex = 28;
+            this.button4.Text = "全锁";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(84, 224);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(63, 23);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "全锁";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(84, 224);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(63, 23);
+            this.button6.TabIndex = 28;
+            this.button6.Text = "全锁";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
@@ -1795,6 +2103,30 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.CheckBox fight_auto_lock;
+        private System.Windows.Forms.CheckBox Y_L_S;
+        private System.Windows.Forms.CheckBox Y_Y_S;
+        private System.Windows.Forms.CheckBox Y_S2_S;
+        private System.Windows.Forms.CheckBox Y_F_S;
+        private System.Windows.Forms.CheckBox Y_W_S;
+        private System.Windows.Forms.CheckBox H_L_S;
+        private System.Windows.Forms.CheckBox H_Y_S;
+        private System.Windows.Forms.CheckBox H_S2_S;
+        private System.Windows.Forms.CheckBox H_F_S;
+        private System.Windows.Forms.CheckBox H_W_S;
+        private System.Windows.Forms.CheckBox L_L_S;
+        private System.Windows.Forms.CheckBox L_Y_S;
+        private System.Windows.Forms.CheckBox L_S2_S;
+        private System.Windows.Forms.CheckBox L_F2_S;
+        private System.Windows.Forms.CheckBox L_W_S;
+        private System.Windows.Forms.CheckBox M_L_S;
+        private System.Windows.Forms.CheckBox M_Y_S;
+        private System.Windows.Forms.CheckBox M_S2_S;
+        private System.Windows.Forms.CheckBox M_F2_S;
+        private System.Windows.Forms.CheckBox M_W_S;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

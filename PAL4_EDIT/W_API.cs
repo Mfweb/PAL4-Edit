@@ -61,7 +61,7 @@ namespace PAL4_EDIT
         //    );
         [DllImport("kernel32.dll")]
         public static extern
-            Int32 ReadProcessMemory(IntPtr hProcess, int lpBaseAddress, byte[] lpbuff, UInt32 nSize, out int lpNumberOfBytesRead);
+            unsafe Int32 ReadProcessMemory(IntPtr hProcess, int lpBaseAddress, byte* lpbuff, UInt32 nSize, out int lpNumberOfBytesRead);
 
         [DllImport("kernel32.dll")]
         public static extern
@@ -86,5 +86,126 @@ namespace PAL4_EDIT
         [DllImport("kernel32.dll")]
         public static extern
            int GetModuleHandle(string lpModuleName);
+
+
+
+
+        /// <summary>
+        /// 读多个字节内存
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <param name="hAddr"></param>
+        /// <param name="readLen"></param>
+        /// <param name="outData"></param>
+        /// <returns></returns>
+        unsafe public bool ReadBytes(IntPtr hwnd, int hAddr, uint readLen, byte* outData) {
+            int ip = new int();
+            int o_sta = W_API.ReadProcessMemory(hwnd, hAddr, outData, readLen, out ip);
+            if (o_sta == 0) {
+                outData = null;
+                return false;
+            }
+            return true;
+        }
+        
+        /// <summary>
+        /// 读2字节内存
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <param name="hAddr"></param>
+        /// <param name="outData"></param>
+        /// <returns></returns>
+        unsafe public bool Read2Byte(IntPtr hwnd, int hAddr, out UInt16 outData) {
+            byte[] out_byte = new byte[2];
+            IntPtr dataPrt = Marshal.AllocHGlobal(out_byte.Length);
+
+            int ip = new int();
+            int o_sta = W_API.ReadProcessMemory(hwnd, hAddr, (byte*)dataPrt, 2, out ip);
+            Marshal.Copy((IntPtr)dataPrt, out_byte, 0, out_byte.Length);
+            Marshal.FreeHGlobal(dataPrt);
+
+            if (o_sta == 0) {
+                outData = 0;
+                return false;
+            }
+            
+            
+            UInt16 temp = 0;
+            temp |= out_byte[0];
+            temp |= (UInt16)(out_byte[1] << 8);
+            outData = (UInt16)temp;
+            return true;
+        }
+
+
+        /// <summary>
+        /// 读4字节内存
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <param name="hAddr"></param>
+        /// <param name="outData"></param>
+        /// <returns></returns>
+        unsafe public bool Read4Byte(IntPtr hwnd, int hAddr, out Int32 outData) {
+            byte[] out_byte = new byte[4];
+            IntPtr dataPrt = Marshal.AllocHGlobal(out_byte.Length);
+
+            int ip = new int();
+            int o_sta = W_API.ReadProcessMemory(hwnd, hAddr, (byte *)dataPrt, 4, out ip);
+            Marshal.Copy((IntPtr)dataPrt, out_byte, 0, out_byte.Length);
+            Marshal.FreeHGlobal(dataPrt);
+
+            if (o_sta == 0) {
+                outData = 0;
+                return false;
+            }
+
+            UInt32 temp = 0;
+            temp |= (UInt32)out_byte[0];
+            temp |= ((UInt32)out_byte[1]) << 8;
+            temp |= ((UInt32)out_byte[2]) << 16;
+            temp |= ((UInt32)out_byte[3]) << 24;
+            outData = (Int32)temp;
+            return true;
+        }
+        
+        /// <summary>
+        /// 写2字节内存
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <param name="hAddr"></param>
+        /// <param name="inData"></param>
+        /// <returns></returns>
+        public bool Write2Byte(IntPtr hwnd, int hAddr, UInt16 inData) {
+            byte[] temp_byte = new byte[2];
+            temp_byte[0] = (byte)inData;
+            temp_byte[1] = (byte)(inData >> 8);
+            int ip = 0;
+            int o_sta = W_API.WriteProcessMemory(hwnd, hAddr, temp_byte, 2, out ip);
+            if (o_sta == 0) {
+                return false;
+            }
+            return true;
+        }
+        
+        /// <summary>
+        ///  写4字节内存
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <param name="hAddr"></param>
+        /// <param name="inData"></param>
+        /// <returns></returns>
+        public bool Write4Byte(IntPtr hwnd, int hAddr, Int32 inData) {
+            byte[] temp_byte = new byte[4];
+            temp_byte[0] = (byte)inData;
+            temp_byte[1] = (byte)(inData >> 8);
+            temp_byte[2] = (byte)(inData >> 16);
+            temp_byte[3] = (byte)(inData >> 24);
+            int ip = 0;
+            int o_sta = W_API.WriteProcessMemory(hwnd, hAddr, temp_byte, 4, out ip);
+            if (o_sta == 0) {
+                return false;
+            }
+            return true;
+        }
     }
 }

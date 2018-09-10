@@ -1,10 +1,10 @@
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\bin\Release\PAL4_EDIT.exe.config
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\bin\Release\PAL4_EDIT.exe
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\bin\Release\PAL4_EDIT.pdb
-C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Release\PAL4_EDIT.Form1.resources
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Release\PAL4_EDIT.Properties.Resources.resources
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Release\PAL4_EDIT.csproj.GenerateResource.cache
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Release\PAL4_EDIT.csproj.CoreCompileInputs.cache
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Release\PAL4_EDIT.exe
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Release\PAL4_EDIT.pdb
 C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Release\PAL4_EDIT.csprojAssemblyReference.cache
+C:\Users\h\Documents\Project\PAL4-Edit\PAL4_EDIT\obj\Release\PAL4_EDIT.MainForm.resources
